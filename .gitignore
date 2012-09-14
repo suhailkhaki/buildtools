@@ -1,1 +1,17 @@
+[#]*
+*.pyc
 *~
+*.DS_*
+*.idea
+*.log
+*.log.*
+dist/
+logs/
+ns_server_data*
+tmp*
+.project
+.pydevproject
+b/resources/xdcr/
+pytests/xdcr-mod/
+v20unittestruntime/
+

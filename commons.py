@@ -17,9 +17,30 @@ class CommonUtils:
         """Returns the permission of a file."""
         return oct(stat.S_IMODE(os.stat(path).st_mode))
 
+    @staticmethod
+    def get_filecount_for_dir_tree(dir_path):
+        count = 0
+        for o in os.walk(dir_path):
+            count += len(o[2])
+        return count
+
 class CommonConsts:
+
     SW_DEPOT_MANIFEST_FILE_DIR = "manifestfiles"
     SW_DEPOT_DATAFILES_DIR = "datafiles"
+
+    '''
+    Manifest file dictionary keys and attributes of keys
+    '''
+    MF_KEY_DIRS = "dirs"
+    MF_KEY_FILES = "files"
+    MF_KEY_DEPENDS = "depends"
+    MF_KEY_BUILD = "build"
+
+    MF_KEY_FILES_ATTR_PATH = "path"
+    MF_KEY_FILES_ATTR_SHA1 = "sha1"
+    MF_KEY_FILES_ATTR_MODE = "mode"
+
 
 ''' Exceptions '''
 class ChecksumError(Exception):

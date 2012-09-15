@@ -3,7 +3,7 @@ import os
 import hashlib
 import stat
 import json
-from commons import CommonUtils
+from commons import CommonUtils, CommonConsts
 
 class ManifestGenerator:
     def __init__(self, package_name, version, platform, stage_dir, _target_file_path):
@@ -18,19 +18,19 @@ class ManifestGenerator:
         return cls(args.package_name, args.version, args.platform, args.stage_dir, args.target_file_path)
 
     def generate_manifest(self):
-        manifest = {'build':[], 'depends':[], 'dirs':[], 'files': []}
+        manifest = {CommonConsts.MF_KEY_BUILD:[], CommonConsts.MF_KEY_DEPENDS:[], CommonConsts.MF_KEY_DIRS:[], CommonConsts.MF_KEY_FILES: []}
 
         for dirpath, dirnames, files in os.walk(self._staging_dir):
             dir_rel_path = os.path.relpath(dirpath, self._staging_dir)
             if dir_rel_path != ".":
-                manifest['dirs'].append({'path':dir_rel_path})
+                manifest[CommonConsts.MF_KEY_DIRS].append({CommonConsts.MF_KEY_FILES_ATTR_PATH:dir_rel_path})
             for file_ in files:
                 fullpath = os.path.join(dirpath, file_)
                 sha1 = HashGenerator(fullpath).generate_hash()
                 filename = os.path.relpath(fullpath, self._staging_dir)
                 mode = CommonUtils.get_filepermission(fullpath)
-                manifest['files'].append({'path': filename, 'sha1': sha1,
-                                      'mode': mode})
+                manifest[CommonConsts.MF_KEY_FILES].append({CommonConsts.MF_KEY_FILES_ATTR_PATH: filename, CommonConsts.MF_KEY_FILES_ATTR_SHA1: sha1,
+                                      CommonConsts.MF_KEY_FILES_ATTR_MODE: mode})
 
         if self._target_file_path is None:
             return json.dumps(manifest)

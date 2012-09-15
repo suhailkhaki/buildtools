@@ -26,14 +26,14 @@ class SoftwareDepot:
             os.makedirs(dest_path)
             with open(manifest_file, "rb") as f:
                 manifest = json.load(f)
-                dirs_m = manifest["dirs"]
-                files_m = manifest["files"]
+                dirs_m = manifest[CommonConsts.MF_KEY_DIRS]
+                files_m = manifest[CommonConsts.MF_KEY_FILES]
                 for file_ in files_m:
-                    fullpath = os.path.join(staging_dir, file_["path"])
+                    fullpath = os.path.join(staging_dir, file_[CommonConsts.MF_KEY_FILES_ATTR_PATH])
                     contents = open(fullpath, 'rb').read()
                     sha1 = hashlib.sha1(contents).hexdigest()
-                    if sha1 != file_["sha1"]:
-                        raise ChecksumError("FATAL: File modified in staging area before installation: {0}".format(file_["path"]))
+                    if sha1 != file_[CommonConsts.MF_KEY_FILES_ATTR_SHA1]:
+                        raise ChecksumError("FATAL: File modified in staging area before installation: {0}".format(file_[CommonConsts.MF_KEY_FILES_ATTR_PATH]))
                     mode = CommonUtils.get_filepermission(fullpath)
                     if mode != file_["mode"]:
                         raise PermissionError("FATAL: SHA1 doesn't match for installed file: {0}".format(fullpath))

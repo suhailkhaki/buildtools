@@ -5,31 +5,55 @@ import urllib
 import tarfile
 import subprocess
 import shutil
+import json
+import logger
+
+from commons import CommonConsts, CommonUtils
+from manifestutils import ManifestGenerator
+from swdepot import SoftwareDepot
 
 # directory paths from current directory
 DIR_UNITTEST_RT = "v20unittestruntime"
 DIR_DOWNLOAD = os.path.join(DIR_UNITTEST_RT, "v20downloads")
 DIR_STAGING = os.path.join(DIR_UNITTEST_RT, "v20staging")
 DIR_SNAPPY = os.path.join(DIR_STAGING, "snappy")
+DIR_SNAPPY_STAGING = os.path.join(DIR_STAGING, "snappy", "opt", "couchbase") # since we setting --prefix=/opt/couchbase while make install
 DIR_DEPOT = os.path.join(DIR_UNITTEST_RT, "v20depot")
+DIR_DEPOT_DATAFILES = os.path.join(DIR_DEPOT, CommonConsts.SW_DEPOT_DATAFILES_DIR)
+DIR_DEPOT_MANIFESTFILES = os.path.join(DIR_DEPOT, CommonConsts.SW_DEPOT_MANIFEST_FILE_DIR)
+DIR_DEPOT_TEMP = os.path.join(DIR_DEPOT, "temp")
+
 DIR_INSTALL = os.path.join(DIR_UNITTEST_RT, "v20install")
+
+SNAPPY_PKG_NAME = "snappy"
+SNAPPY_VERSION = "1.0.5"
+SNAPPY_PLATFORM = "ubuntu-12.04"
+SNAPPY_MANIFEST_FILENAME = "snappy-1.0.5-ubuntu-12.04.json"
 
 class BaseTestCase(unittest.TestCase):
 
     def setUp(self):
-        if not os.path.exists(DIR_UNITTEST_RT):
-            os.mkdir(DIR_UNITTEST_RT)
-        self._setup_staging()
-        self._setup_depot()
-        self._setup_install()
+        try:
+            self.log = logger.Logger.get_logger()
+            self.log.info("setup started...")
+            if not os.path.exists(DIR_UNITTEST_RT):
+                os.mkdir(DIR_UNITTEST_RT)
+            self._setup_staging()
+            self._setup_depot()
+            self._setup_install()
+            self.log.info("setup completed.")
+        except Exception as e:
+            self._teardown_setup()
 
 
     '''
     clear the depot and install.
     '''
     def tearDown(self):
+        self.log.info("tearDown started...")
         self._teardown_depot()
         self._teardown_install()
+        self.log.info("tearDown completed.")
         pass
 
     '''
@@ -52,9 +76,16 @@ class BaseTestCase(unittest.TestCase):
 
     def _setup_depot(self):
         os.mkdir(DIR_DEPOT)
+        os.mkdir(DIR_DEPOT_MANIFESTFILES)
+        os.mkdir(DIR_DEPOT_DATAFILES)
+        os.mkdir(DIR_DEPOT_TEMP)
 
     def _setup_install(self):
         os.mkdir(DIR_INSTALL)
+
+    def _teardown_setup(self):
+        if os.path.exists(DIR_UNITTEST_RT):
+            shutil.rmtree(DIR_UNITTEST_RT)
 
     def _teardown_depot(self):
         if os.path.exists(DIR_DEPOT):
@@ -77,6 +108,42 @@ class BaseTestCase(unittest.TestCase):
         subprocess.call([os.path.join(DIR_DOWNLOAD, "snappy-1.0.5", "configure"), "--prefix=/opt/couchbase"])
         subprocess.call(["make", "install", "DESTDIR=" + os.path.join(pwd, DIR_SNAPPY)])
 
+    '''
+    Util functions for test cases
+    '''
+    def generate_manifest_file(self):
+        m = ManifestGenerator(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, os.path.join(DIR_SNAPPY_STAGING), DIR_DEPOT_TEMP)
+        m.generate_manifest()
+
+
 class ManifestTestCases(BaseTestCase):
-    def test_test(self):
-        print "testing......"
+    def test_genfile(self):
+        '''
+        python voltron20.py manifest genfile --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" -stgdir="/tmp/snappy/opt/couchbase" tfp="/home/suhail/workspace/temp/manifest-files"
+        '''
+        m = ManifestGenerator(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, os.path.join(DIR_SNAPPY_STAGING), DIR_DEPOT_TEMP)
+        m.generate_manifest()
+        mfn = CommonUtils.generate_manifest_filename("snappy", "1.0.5", "ubuntu-12.04", "json")
+        with open (os.path.join(DIR_DEPOT_TEMP, mfn)) as f:
+            manifest = json.load(f)
+        assert set([ CommonConsts.MF_KEY_BUILD, CommonConsts.MF_KEY_DEPENDS, CommonConsts.MF_KEY_DIRS, CommonConsts.MF_KEY_FILES]) == set(manifest)
+        assert len(manifest[CommonConsts.MF_KEY_DIRS]) == 5
+        assert len(manifest[CommonConsts.MF_KEY_FILES]) == 16
+
+class SWDepoTestCases(BaseTestCase):
+    def setUp(self):
+        BaseTestCase.setUp(self)
+        self.generate_manifest_file()
+
+
+    def test_depo_add(self):
+        '''
+         python voltron20.py depot add -sd="/tmp/snappy/opt/couchbase" -mf="/home/suhail/workspace/temp/manifest-files/snappy-1.0.5-ubuntu-12.04.json"
+        '''
+        sd = SoftwareDepot(DIR_DEPOT)
+        sd.add(os.path.join(DIR_DEPOT_TEMP, SNAPPY_MANIFEST_FILENAME), DIR_SNAPPY_STAGING)
+        assert CommonUtils.get_filecount_for_dir_tree(DIR_DEPOT_DATAFILES) == 14
+
+
+
+

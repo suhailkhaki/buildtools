@@ -14,6 +14,47 @@ Voltron20 workflow has three stages
 
 3. Installation: Package is installed as per configuration provided in manifest file for that given package. Any dependency defined in the manifest file is installed recursively.
 
+Manifest file Structure
+------------------------
+
+	{   
+	   "dirs": [
+	     {
+	       "path": "relative path of internal directory structure of package"
+	     } 
+	    ],
+	   
+	   "files" :[
+	     {
+	       "path" : "The relative pathname to the file to install",
+	       "sha1" : "The sha1 of the file"
+	       "mode" : "The file mode"
+	     }
+	   ],
+	   
+	   "depends":[
+	     {
+	       "package": "name of the dependent package"
+	       "version": "version of the dependent package we want"
+	       "paltform": "target installation platform of dependent package"
+	       "manifest": "manifest file name for the dependent package as defined in software depot. \n
+			    If we provide the this attribute then other attributes are optional"
+	     }
+	   ]
+	    
+	   "build":[
+	     { "command": "command to install package to staging area."
+	     }
+	  ]
+	}
+
+Notes
+------
+For the command structure please refer below image.
+
+The commands maked with tick are currently implemented ones.
+
+![Commands](https://raw.github.com/suhailkhaki/buildtools/master/CommandAPI.png "Command API Structure")
 
 Example 1 - Snappy
 ------------------
@@ -23,17 +64,29 @@ In this example,
 * Installation -> Step 5
 
 1. Download Snappy and extract it:
-	`http://snappy.googlecode.com/files/snappy-1.0.5.tar.gz`
+
+		http://snappy.googlecode.com/files/snappy-1.0.5.tar.gz
 
 2. Compile Snappy:
-  `./configure --prefix=/opt/couchbase`
-  `gmake install DESTDIR=/tmp/snappy`
+		
+		./configure --prefix=/opt/couchbase
 
-3. Generate manifest fil`
-  `python voltron20.py manifest genfile --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" -stgdir="/tmp/snappy/opt/couchbase" tfp="/home/suhail/workspace/temp/manifest-files"`
 
-4. Deploy the binaries to our software depot
-  `python voltron20.py depot -l="/cbdepot" add -sd="/tmp/snappy/opt/couchbase" -mf="/home/suhail/workspace/temp/manifest-files/snappy-1.0.5-ubuntu-12.04.json"`
+		gmake install DESTDIR=/tmp/snappy
 
-5. Install it to the directory named install
-  `install --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" -d="/home/suhail/cbinstall" -depol="/cbdepot"`
+3. Generate manifest file:
+	  
+		python voltron20.py manifest genfile --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" 
+		-sd="/tmp/snappy/opt/couchbase" -tfp="/home/suhail/workspace/temp/manifest-files"
+	
+
+4. Deploy the binaries to our software depot:
+
+		python voltron20.py depot -l="/cbdepot" add --package_name="snappy" -ver="1.0.5" 
+		-p="ubuntu-12.04" -sd="/tmp/snappy/opt/couchbase" -md="/home/suhail/workspace/temp/manifest-files"
+
+5. Install it to the directory named install:
+
+		install --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" 
+		-d="/home/suhail/cbinstall" -depol="/cbdepot"
+

@@ -44,6 +44,7 @@ class BaseTestCase(unittest.TestCase):
             self.log.info("setup completed.")
         except Exception as e:
             self._teardown_setup()
+            raise e
 
 
     '''
@@ -105,8 +106,10 @@ class BaseTestCase(unittest.TestCase):
     def _build_snappy(self):
         # Need to work to make it platform independent for prefix
         pwd = os.getcwd()
-        subprocess.call([os.path.join(DIR_DOWNLOAD, "snappy-1.0.5", "configure"), "--prefix=/opt/couchbase"])
+        os.chdir(os.path.join(DIR_DOWNLOAD, "snappy-1.0.5"))
+        subprocess.call([ os.path.join(".", "configure"), "--prefix=/opt/couchbase"])
         subprocess.call(["make", "install", "DESTDIR=" + os.path.join(pwd, DIR_SNAPPY)])
+        os.chdir(pwd)
 
     '''
     Util functions for test cases
@@ -136,14 +139,49 @@ class SWDepoTestCases(BaseTestCase):
         self.generate_manifest_file()
 
 
-    def test_depo_add(self):
+    def test_depot_add(self):
+        self._add_snappy_to_depot()
+        assert CommonUtils.get_filecount_for_dir_tree(DIR_DEPOT_DATAFILES) == 14
+
+    def test_depot_update(self):
+        self._add_snappy_to_depot()
+        self._update_snappy_in_depot()
+        assert CommonUtils.get_filecount_for_dir_tree(DIR_DEPOT_DATAFILES) == 14
+
+    def test_depot_delete(self):
+        self._add_snappy_to_depot()
+        self._delete_snappy_from_depot()
+        assert not os.path.exists(os.path.join(DIR_DEPOT_MANIFESTFILES, SNAPPY_MANIFEST_FILENAME))
+        assert not os.path.exists(os.path.join(DIR_DEPOT_DATAFILES, os.path.basename(SNAPPY_MANIFEST_FILENAME)))
+
+    def test_depot_list(self):
+        self._add_snappy_to_depot()
+        sd = SoftwareDepot(DIR_DEPOT)
+        lst = sd.list()
+        assert len(lst) == 1
+        assert SNAPPY_MANIFEST_FILENAME in lst
+
+    def _add_snappy_to_depot(self):
         '''
          python voltron20.py depot add -sd="/tmp/snappy/opt/couchbase" -mf="/home/suhail/workspace/temp/manifest-files/snappy-1.0.5-ubuntu-12.04.json"
         '''
         sd = SoftwareDepot(DIR_DEPOT)
-        sd.add(os.path.join(DIR_DEPOT_TEMP, SNAPPY_MANIFEST_FILENAME), DIR_SNAPPY_STAGING)
-        assert CommonUtils.get_filecount_for_dir_tree(DIR_DEPOT_DATAFILES) == 14
+        sd.add(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, DIR_SNAPPY_STAGING, os.path.join(DIR_DEPOT_TEMP))
 
+    def _update_snappy_in_depot(self):
+        '''
+         python voltron20.py depot update -sd="/tmp/snappy/opt/couchbase" -mf="/home/suhail/workspace/temp/manifest-files/snappy-1.0.5-ubuntu-12.04.json"
+        '''
+        sd = SoftwareDepot(DIR_DEPOT)
+        sd.update(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, DIR_SNAPPY_STAGING, os.path.join(DIR_DEPOT_TEMP))
 
+    def _delete_snappy_from_depot(self):
+        '''
+         python voltron20.py depot delete -sd="/tmp/snappy/opt/couchbase" -mf="/home/suhail/workspace/temp/manifest-files/snappy-1.0.5-ubuntu-12.04.json"
+        '''
+        sd = SoftwareDepot(DIR_DEPOT)
+        sd.delete(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM)
 
-
+    def _list_packages(self):
+        sd = SoftwareDepot(DIR_DEPOT)
+        sd.list()

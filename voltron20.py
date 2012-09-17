@@ -28,7 +28,7 @@ def _define_parser_manifest(parser):
     parser_genfile.add_argument("--package_name", "-pkg", dest="package_name", required=True, help="Name of the package.")
     parser_genfile.add_argument("--version", "-ver", dest="version", required=True, help="Package version.")
     parser_genfile.add_argument("--platform", "-p", dest="platform", required=True, help="Target platform.")
-    parser_genfile.add_argument("--stage_dir", "-stgdir", dest="stage_dir", required=True, help="Staging directory.")
+    parser_genfile.add_argument("--stage_dir", "-sd", dest="stage_dir", required=True, help="Staging directory.")
     parser_genfile.add_argument("--target_file_path", "-tfp", dest="target_file_path", help="Target file path.")
     parser_genfile.set_defaults(func=_handle_manifest_genfile)
 
@@ -41,17 +41,29 @@ def _define_parser_depot(parser):
     sub_parsers = parser.add_subparsers(dest="subparser_name")
 
     parser_list = sub_parsers.add_parser("list", help="Lists all the packages in the software depot.")
+    parser_list.set_defaults(func=_handle_depot_list)
 
     parser_add = sub_parsers.add_parser("add", help="Adds a package to software depot.")
-    parser_add.add_argument("--manifest_file", "-mf", dest="manifest_file", required=True, help="Manifest file name with absolute path.")
+    parser_add.add_argument("--package_name", "-pkg", dest="package_name", required=True, help="Name of the package.")
+    parser_add.add_argument("--version", "-ver", dest="version", required=True, help="Package version.")
+    parser_add.add_argument("--platform", "-p", dest="platform", required=True, help="Target platform.")
     parser_add.add_argument("--stage_dir", "-sd", dest="staging_dir", required=True, help="Staging directory with absolute path.")
+    parser_add.add_argument("--manifest_dirpath", "-md", dest="manifest_dir", required=True, help="Absolute path of manifest directory.")
     parser_add.set_defaults(func=_handle_depot_add)
 
     parser_update = sub_parsers.add_parser("update", help="Updates a package in software depot.")
-    parser_update.add_argument("package_dir_path", help="Directory path of the udpated package.")
+    parser_update.add_argument("--package_name", "-pkg", dest="package_name", required=True, help="Name of the package.")
+    parser_update.add_argument("--version", "-ver", dest="version", required=True, help="Package version.")
+    parser_update.add_argument("--platform", "-p", dest="platform", required=True, help="Target platform.")
+    parser_update.add_argument("--stage_dir", "-sd", dest="staging_dir", required=True, help="Staging directory with absolute path.")
+    parser_update.add_argument("--manifest_dir", "-md", dest="manifest_dir", required=True, help="Absolute path of manifest directory.")
+    parser_update.set_defaults(func=_handle_depot_update)
 
-    parser_del = sub_parsers.add_parser("del", help="Deletes a package in software depot.")
-    parser_del.add_argument("package_name", help="Name of the package to be deleted.")
+    parser_del = sub_parsers.add_parser("delete", help="Deletes a package in software depot.")
+    parser_del.add_argument("--package_name", "-pkg", dest="package_name", required=True, help="Name of the package.")
+    parser_del.add_argument("--version", "-ver", dest="version", required=True, help="Package version.")
+    parser_del.add_argument("--platform", "-p", dest="platform", required=True, help="Target platform.")
+    parser_del.set_defaults(func=_handle_depot_delete)
 
 def _define_parser_install(parser):
     parser.add_argument("--package_name", "-pkg", dest="package_name", required=True, help="Name of the package.")
@@ -73,10 +85,24 @@ def _handle_manifest_genfile(args):
     mangen.generate_manifest()
     print "Manifest generated."
 
+def _handle_depot_list(args):
+    depot = swdepot.SoftwareDepot(args.depot_location)
+    depot.list()
+
 def _handle_depot_add(args):
-    depot = swdepot.SoftwareDepot.get_instance_from_args(args)
-    depot.add_by_args(args)
+    depot = swdepot.SoftwareDepot(args.depot_location)
+    depot.add(args.package_name, args.version, args.platform, args.staging_dir, args.manifest_dir)
     print "Package added."
+
+def _handle_depot_update(args):
+    depot = swdepot.SoftwareDepot(args.depot_location)
+    depot.update(args.package_name, args.version, args.platform, args.staging_dir, args.manifest_dir)
+    print "Package updated."
+
+def _handle_depot_delete(args):
+    depot = swdepot.SoftwareDepot(args.depot_location)
+    depot.delete(args.package_name, args.version, args.platform)
+    print "Package deleted."
 
 def _handle_install(args):
     PackageInstaller(args.package_name, args.version, args.platform, args.install_dir, args.depot_location).install()

@@ -41,8 +41,16 @@ class CommonConsts:
     MF_KEY_FILES_ATTR_SHA1 = "sha1"
     MF_KEY_FILES_ATTR_MODE = "mode"
 
+    MF_KEY_DEPENDS_ATTR_MANIFEST = "manifest"
+    MF_KEY_DEPENDS_ATTR_PACKAGE = "package"
+    MF_KEY_DEPENDS_ATTR_VERSION = "version"
+    MF_KEY_DEPENDS_ATTR_PLATFORM = "platform"
+
 
 ''' Exceptions '''
+class PackageExistsError(Exception):
+    pass
+
 class ChecksumError(Exception):
     pass
 

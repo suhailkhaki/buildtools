@@ -9,6 +9,9 @@ from commons import CommonUtils, CommonConsts, ChecksumError, PermissionError, C
 DEP_STATUS_KEY_INSTALLED = "installed"
 DEP_STATUS_KEY_INQUEUE = "in-queue"
 
+'''
+TODO:move manifestfile to ect/package
+'''
 
 class PackageInstaller:
     def __init__(self, name, version, platform, install_dir, depot_location, dep_status={DEP_STATUS_KEY_INSTALLED: [],
@@ -103,17 +106,17 @@ class PackageInstaller:
         return manifest_temp_path
 
     def _install_fresh(self):
-        if 'depends' in self._manifest:
-            self._process_dependencies(self._manifest["depends"])
-        if 'dirs' in self._manifest:
-            self._process_directories(self._manifest["dirs"])
-        if 'files' in self._manifest:
-            self._process_files(self._manifest["files"])
+        if CommonConsts.MF_KEY_DEPENDS in self._manifest:
+            self._process_dependencies(self._manifest[CommonConsts.MF_KEY_DEPENDS])
+        if CommonConsts.MF_KEY_DIRS in self._manifest:
+            self._process_directories(self._manifest[CommonConsts.MF_KEY_DIRS])
+        if CommonConsts.MF_KEY_FILES in self._manifest:
+            self._process_files(self._manifest[CommonConsts.MF_KEY_FILES])
 
     def _verify_installation(self):
         print "verifying installation."
-        if 'files' in self._manifest:
-            self._process_files(self._manifest["files"])
+        if CommonConsts.MF_KEY_FILES in self._manifest:
+            self._process_files(self._manifest[CommonConsts.MF_KEY_FILES])
         print "verification completed."
 
     #TODO: Cyclic dependency
@@ -124,22 +127,25 @@ class PackageInstaller:
 
     def _process_directories(self, dirs):
         for d in dirs:
-            p = os.path.join(self._pkg_install_dir, d["path"])
+            p = os.path.join(self._pkg_install_dir, d[CommonConsts.MF_KEY_FILES_ATTR_PATH])
             if not os.path.exists(p):
                 os.makedirs(p, 0755)
 
     def _process_files(self, files):
         for f in files:
-            destfile = os.path.join(self._pkg_install_dir, f["path"])
+            destfile = os.path.join(self._pkg_install_dir, f[CommonConsts.MF_KEY_FILES_ATTR_PATH])
             if os.path.exists(destfile):
                 self._verify_file(f)
             else:
                 self._install_file(f)
 
     def _install_dependency(self, dep):
-        mfn = dep["manifest"]
+        mfn = dep[CommonConsts.MF_KEY_DEPENDS_ATTR_MANIFEST]
         if not mfn:
-            mfn = CommonUtils.generate_manifest_filename(dep["package"], dep["version"], dep["platform"], "json")
+            mfn = CommonUtils.generate_manifest_filename(dep[CommonConsts.MF_KEY_DEPENDS_ATTR_PACKAGE],
+                                                         dep[CommonConsts.MF_KEY_DEPENDS_ATTR_VERSION],
+                                                         dep[CommonConsts.MF_KEY_DEPENDS_ATTR_PLATFORM],
+                                                         "json")
         if mfn in self._dep_status[DEP_STATUS_KEY_INSTALLED]:
             return
         elif mfn in self._dep_status[DEP_STATUS_KEY_INQUEUE]:
@@ -150,21 +156,21 @@ class PackageInstaller:
 
     """Check the sha1 of and installed file and verifies its permission"""
     def _verify_file(self, f):
-        fullpath = os.path.join(self._pkg_install_dir, f["path"])
+        fullpath = os.path.join(self._pkg_install_dir, f[CommonConsts.MF_KEY_FILES_ATTR_PATH])
         digest = hashlib.new("sha1")
         digest.update(open(fullpath, "rb").read())
-        if digest.hexdigest() != f["sha1"]:
+        if digest.hexdigest() != f[CommonConsts.MF_KEY_FILES_ATTR_SHA1]:
             raise ChecksumError("FATAL: SHA1 doesn't match for installed file: {0}".format(fullpath))
         mode = CommonUtils.get_filepermission(fullpath)
-        if mode != f["mode"]:
+        if mode != f[CommonConsts.MF_KEY_FILES_ATTR_MODE]:
             raise PermissionError("FATAL: SHA1 doesn't match for installed file: {0}".format(fullpath))
         return True
 
     def _install_file(self, f):
-        srcfile = os.path.join(self._depot_datafile_location, f["sha1"])
-        destfile = os.path.join(self._pkg_install_dir, f["path"])
+        srcfile = os.path.join(self._depot_datafile_location, f[CommonConsts.MF_KEY_FILES_ATTR_SHA1])
+        destfile = os.path.join(self._pkg_install_dir, f[CommonConsts.MF_KEY_FILES_ATTR_PATH])
         urllib.urlretrieve(srcfile, destfile)
-        os.chmod(destfile, int(f["mode"], 8))
+        os.chmod(destfile, int(f[CommonConsts.MF_KEY_FILES_ATTR_MODE], 8))
         if not self._verify_file(f):
             os._exit(os.EX_DATAERR)
 

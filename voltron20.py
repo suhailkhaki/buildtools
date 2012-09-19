@@ -1,6 +1,6 @@
 import sys
 import argparse
-import manifestutils
+from manifestutils import ManifestGenerator
 import swdepot
 import depinstall
 from depinstall import PackageInstaller
@@ -81,7 +81,7 @@ def _define_parser_install(parser):
     '''
 
 def _handle_manifest_genfile(args):
-    mangen = manifestutils.ManifestGenerator.instance_from_args(args)
+    mangen = ManifestGenerator(args.package_name, args.version, args.platform, args.stage_dir, args.target_file_path)
     mangen.generate_manifest()
     print "Manifest generated."
 

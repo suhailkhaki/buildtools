@@ -1,0 +1,1209 @@
+{
+    "dirs": [
+        {
+            "path": "lib"
+        },
+        {
+            "path": "lib/icu"
+        },
+        {
+            "path": "lib/icu/4.4.2"
+        },
+        {
+            "path": "bin"
+        },
+        {
+            "path": "share"
+        },
+        {
+            "path": "share/man"
+        },
+        {
+            "path": "share/man/man8"
+        },
+        {
+            "path": "share/man/man1"
+        },
+        {
+            "path": "share/icu"
+        },
+        {
+            "path": "share/icu/4.4.2"
+        },
+        {
+            "path": "share/icu/4.4.2/config"
+        },
+        {
+            "path": "sbin"
+        },
+        {
+            "path": "include"
+        },
+        {
+            "path": "include/layout"
+        },
+        {
+            "path": "include/unicode"
+        }
+    ],
+    "files": [
+        {
+            "path": "lib/libicule.so",
+            "sha1": "78c2fe728085005ea2b69f7a5d8ecb86eeda63ff",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicule.so.44",
+            "sha1": "78c2fe728085005ea2b69f7a5d8ecb86eeda63ff",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicui18n.so",
+            "sha1": "f1f791d1c98d3c066d513abb5a523ed18b634934",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicuio.so",
+            "sha1": "1881b888dda6d73d07afd81d6166f41887906efa",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libiculx.so.44",
+            "sha1": "7a8368d358a546ce1a3a2430d2a0666160ceea2a",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicutest.so",
+            "sha1": "5d100af25bc7e7705500aed766897e2b4c21b608",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicutest.so.44",
+            "sha1": "5d100af25bc7e7705500aed766897e2b4c21b608",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicule.so.44.2",
+            "sha1": "78c2fe728085005ea2b69f7a5d8ecb86eeda63ff",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicutest.so.44.2",
+            "sha1": "5d100af25bc7e7705500aed766897e2b4c21b608",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicuio.so.44.2",
+            "sha1": "1881b888dda6d73d07afd81d6166f41887906efa",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicutu.so.44",
+            "sha1": "cef99d3e908e64bbefe6a521dad62259358a39a9",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libiculx.so",
+            "sha1": "7a8368d358a546ce1a3a2430d2a0666160ceea2a",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicui18n.so.44",
+            "sha1": "f1f791d1c98d3c066d513abb5a523ed18b634934",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicuio.so.44",
+            "sha1": "1881b888dda6d73d07afd81d6166f41887906efa",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicudata.so.44",
+            "sha1": "a630e241dcfcff8dd93118e7b40f150ef92fcaba",
+            "mode": "0644"
+        },
+        {
+            "path": "lib/libicutu.so",
+            "sha1": "cef99d3e908e64bbefe6a521dad62259358a39a9",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicutu.so.44.2",
+            "sha1": "cef99d3e908e64bbefe6a521dad62259358a39a9",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicudata.so.44.2",
+            "sha1": "a630e241dcfcff8dd93118e7b40f150ef92fcaba",
+            "mode": "0644"
+        },
+        {
+            "path": "lib/libiculx.so.44.2",
+            "sha1": "7a8368d358a546ce1a3a2430d2a0666160ceea2a",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicuuc.so",
+            "sha1": "5a25e9afdafddd4dba83721e5bc5760560615bc6",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicui18n.so.44.2",
+            "sha1": "f1f791d1c98d3c066d513abb5a523ed18b634934",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicuuc.so.44",
+            "sha1": "5a25e9afdafddd4dba83721e5bc5760560615bc6",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicuuc.so.44.2",
+            "sha1": "5a25e9afdafddd4dba83721e5bc5760560615bc6",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libicudata.so",
+            "sha1": "a630e241dcfcff8dd93118e7b40f150ef92fcaba",
+            "mode": "0644"
+        },
+        {
+            "path": "lib/icu/Makefile.inc",
+            "sha1": "cb4defb533adba6e4255ebe7bb7fc6f5e24507f2",
+            "mode": "0644"
+        },
+        {
+            "path": "lib/icu/pkgdata.inc",
+            "sha1": "3e82bf47dee8eb1dfe36dab461e3887fe1a6be23",
+            "mode": "0644"
+        },
+        {
+            "path": "lib/icu/4.4.2/Makefile.inc",
+            "sha1": "cb4defb533adba6e4255ebe7bb7fc6f5e24507f2",
+            "mode": "0644"
+        },
+        {
+            "path": "lib/icu/4.4.2/pkgdata.inc",
+            "sha1": "3e82bf47dee8eb1dfe36dab461e3887fe1a6be23",
+            "mode": "0644"
+        },
+        {
+            "path": "bin/genbrk",
+            "sha1": "404404f1de6f6943733a7625e469438a6663b6d0",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/genctd",
+            "sha1": "6b6a4d4365252508f3435922024aa6f9b243b045",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/gencnval",
+            "sha1": "58378938e19db024b5c5f011ad8b22393c05904e",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/uconv",
+            "sha1": "1ae8eccc32c397929e287178c473e8a8a4699ac1",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/icu-config",
+            "sha1": "27ec996b000b84a4e30296cc3d8d04aba05ebe38",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/icuinfo",
+            "sha1": "df5215f01ecd928c3bb95c0f671eb8c80d315d50",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/derb",
+            "sha1": "ce535a4a5ea5ce3490f9f10c6a5319e6630d7ed1",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/makeconv",
+            "sha1": "b23e64a5015fe42e4045665657f41b34fca44e47",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/pkgdata",
+            "sha1": "ca12a03ff8969ebbf09f454311e950a39655a8e1",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/genrb",
+            "sha1": "826e0a2d93aac819b82b24ba64883be258400679",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/gencfu",
+            "sha1": "d83c8728a8abce45484c31a3cc2f9fd90c4ae233",
+            "mode": "0755"
+        },
+        {
+            "path": "share/man/man8/gensprep.8",
+            "sha1": "626763de03091c94fc180b05f07c3f4dff83e8d5",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man8/genuca.8",
+            "sha1": "0a1f1bab6e7b956ba9484d2f8074cec08c7f82b7",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man8/genccode.8",
+            "sha1": "d3b7adab96167e7d547ea013f9aace5a4609ffda",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man8/icupkg.8",
+            "sha1": "5ea820277efece786cc3c3a3cb835b49be6c4da3",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man8/gencmn.8",
+            "sha1": "294a478cc752d412852c44787b66a6c6f480dbed",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/genrb.1",
+            "sha1": "94d1c79008cd241d067d84437fc297cf3115dc74",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/genctd.1",
+            "sha1": "2cf35ace5607c508226d82e34971d840b8ee6dc8",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/pkgdata.1",
+            "sha1": "f5189caa98f661dbb20246aba9a393dff48544d3",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/uconv.1",
+            "sha1": "ef3429fc3d62968ca2c5f8adbd0e14a5a10ef8eb",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/derb.1",
+            "sha1": "2195bf9cbfda0606f6d5b958ee0b0e36ca3172a1",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/icu-config.1",
+            "sha1": "d7adf58457dc7ef78d2a7ff475a2b7f6798fa67f",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/gencnval.1",
+            "sha1": "768aa48a677d1622bdbc227bc9dadcb2fc4c86eb",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/makeconv.1",
+            "sha1": "4ed3ed8383a2d155219b1e540bf35dca5031be99",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/genbrk.1",
+            "sha1": "00d1dbd300d906837c6c6ef44aef702898e85228",
+            "mode": "0644"
+        },
+        {
+            "path": "share/icu/4.4.2/license.html",
+            "sha1": "4b471ee20de52c3b93b93c780cd0665dd1f1eb9f",
+            "mode": "0644"
+        },
+        {
+            "path": "share/icu/4.4.2/install-sh",
+            "sha1": "9d4de14ab9fb0facae2f48780b874848cbf2f895",
+            "mode": "0755"
+        },
+        {
+            "path": "share/icu/4.4.2/mkinstalldirs",
+            "sha1": "af03aa1fe0e3d80ee334d055b0e793255174cd75",
+            "mode": "0755"
+        },
+        {
+            "path": "share/icu/4.4.2/config/mh-linux",
+            "sha1": "169eb251666ea15778e7646e60a5084314d8dc7d",
+            "mode": "0644"
+        },
+        {
+            "path": "sbin/gencmn",
+            "sha1": "68bfc24886bd867ee652b1ef85a6d1e258c6832f",
+            "mode": "0755"
+        },
+        {
+            "path": "sbin/genccode",
+            "sha1": "1e01e742fb8ce300d5aa9ee3bcb31b754263fde4",
+            "mode": "0755"
+        },
+        {
+            "path": "sbin/gennorm2",
+            "sha1": "657b2f70ceff3a6a20926d26aab92035371aa7f7",
+            "mode": "0755"
+        },
+        {
+            "path": "sbin/icupkg",
+            "sha1": "8edef2f48750cfc059dbdc7d3077f53bcdddad67",
+            "mode": "0755"
+        },
+        {
+            "path": "sbin/gensprep",
+            "sha1": "89d53c2d0b76b9ce846613be0a87c893b8fdaa04",
+            "mode": "0755"
+        },
+        {
+            "path": "sbin/genuca",
+            "sha1": "64111d3824c905924af2fa83b4a895b265e5bb06",
+            "mode": "0755"
+        },
+        {
+            "path": "include/layout/LEScripts.h",
+            "sha1": "b4f5a2a21449648ee4bd9d53835fb6ee944724d6",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/RunArrays.h",
+            "sha1": "57c994b3e40fb4d3f3f7950738d68eb6bef817f3",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/LEGlyphStorage.h",
+            "sha1": "4319c94806b0b2faed4811182ec815eb0a0c1f87",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/LETypes.h",
+            "sha1": "607d14be7109ac881ca023e7d72ffd4d1b1cb294",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/ParagraphLayout.h",
+            "sha1": "8c57eb16e2c3ed46b16b99e0fba264e96aab488f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/LEFontInstance.h",
+            "sha1": "c7fcce37d1d7c7cf2ff4e56ff98a5264196049fe",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/LEGlyphFilter.h",
+            "sha1": "ba0c3ce1aba677791c88e445e3230427be13f79e",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/LayoutEngine.h",
+            "sha1": "f524f31e3f901a3e8572cd87fe9059133caf2bf8",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/plruns.h",
+            "sha1": "8a0f8adac741ecd9cfbc82683439aab565ea3ded",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/LEInsertionList.h",
+            "sha1": "b21d203a37955f19af8081cb91958dc8dd207eb2",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/LELanguages.h",
+            "sha1": "05aacbef69c6d8a4a12100633e68fa6aa7b2aebd",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/loengine.h",
+            "sha1": "c93ff254ea4651d99d22ce35910ebfb49ad6ea8b",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/LESwaps.h",
+            "sha1": "8e218376dc20459218b2e87ff26b9b561388290c",
+            "mode": "0644"
+        },
+        {
+            "path": "include/layout/playout.h",
+            "sha1": "3ee5f9e6f3887bdc41843f364a063e024642fdc7",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ustream.h",
+            "sha1": "3a2bd086f1a5d3b7b54792282b68e15d283dc9eb",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uclean.h",
+            "sha1": "00d3185a7ca771b9fe6ad401429233a6f8cc1582",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uiter.h",
+            "sha1": "ec8d952ebaf763dfd77e1e0151a1fc806520d0f8",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/localpointer.h",
+            "sha1": "ded5af8b60d44468a52a39196f7e102cc93931b1",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/sortkey.h",
+            "sha1": "94a5d3799129122ebe49378737fac2b0ea7e4c73",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uchriter.h",
+            "sha1": "a94f6710cd2e7fdfce8a6719ed240e9377a4c819",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uenum.h",
+            "sha1": "a23964b1026c4a4c2de2acc08d2a1cf8ce88f6ae",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/plurfmt.h",
+            "sha1": "23fdb668e872c75cd0f4b42e5141d87bd6f9d199",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/stsearch.h",
+            "sha1": "09fd5a5a8d43275e85cb76c1adc79db9cd93e962",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/parseerr.h",
+            "sha1": "4cb672c4fc654d44f9bce93dc37dd809a04e14e8",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/coleitr.h",
+            "sha1": "1d72af1d9cbf04b32e95583070b9663be7962048",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucol.h",
+            "sha1": "c3ff055431ae0203292370a864cd5a397a6ddc3e",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucasemap.h",
+            "sha1": "dfa3d1f986d026f97ff3c639fae7e47aa24802a7",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/icudataver.h",
+            "sha1": "e42cdc6e07fca592b2ebcd7be5d4a596d39bfb82",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/symtable.h",
+            "sha1": "a4c13b8fb5296fb46f9b8b24629d53e0836741f8",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/rbtz.h",
+            "sha1": "1b468d4daf46386600ce5fe8b3d3f66883351270",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/usystem.h",
+            "sha1": "9ebc20db4ba648524531a13cbc9dd08cb34f7239",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ulocdata.h",
+            "sha1": "453085828e7ab63d26a60fbaa2fe3947018a1b8e",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/timezone.h",
+            "sha1": "11aeb9b87c75fb77868d55c2c3c742ee1ddd504e",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ustring.h",
+            "sha1": "b6f73d61cd37549de97b1a0066b68c074733b7f1",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/urename.h",
+            "sha1": "ef3c7b8ea5d1634e0c5784c41dfcafd7e0a47ea5",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/std_string.h",
+            "sha1": "776588023f29545bc841581f8cacb126e458f49a",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/chariter.h",
+            "sha1": "ce6135ae2afb8f5b127968ceef36dc16bdbb34f2",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uniset.h",
+            "sha1": "7a7275d8a4f9d0a874374616fc39ff1b8196d4ce",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/measfmt.h",
+            "sha1": "17afc6388fd473939a2e649036b94852ee381cb2",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/umsg.h",
+            "sha1": "92a425ce7b6bbf7649ddef03bfd09ceec47ef830",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/icuplug.h",
+            "sha1": "7f95575db451f5d05924f8d3436b430641626b42",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/unirepl.h",
+            "sha1": "772a4256e45d64796c5d218a7774dc65009e422f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucnv_cb.h",
+            "sha1": "6d7a99a36ee3d96277f12560baf4443c1011c89f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/unifunct.h",
+            "sha1": "53a27aef09df4a1e691c06c3932fd293cd8a34c8",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utmscale.h",
+            "sha1": "5a0cd25960ecd6c22865b54fa717882e50d047b8",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/basictz.h",
+            "sha1": "6ca638d51a755c73a402525cbcb8df73fa734e04",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/tmutfmt.h",
+            "sha1": "0879e010f822271d7f17a5704da8858fc812b634",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/bytestream.h",
+            "sha1": "ecd4ed9204d37fc0098f875045834092e4aa123f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/docmain.h",
+            "sha1": "3085b98b836a0d8891758add0a92cf64e852560b",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/rbnf.h",
+            "sha1": "20470d8faaf646836cbea50f3ee747185a86bb7f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utrans.h",
+            "sha1": "d5787d10f62eeb3c09d253eb7b4d53f84741c8cf",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/dtintrv.h",
+            "sha1": "e9a518d5d0cc6841db104fe4aae106d111ffb793",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utext.h",
+            "sha1": "adf9cdbbf04fa692cd6ec5273e4eb683613cd3b2",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ptypes.h",
+            "sha1": "add021c623c220056d7cffae57d55f88a5519581",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/dtrule.h",
+            "sha1": "a76ecac43d4efba8909e402e29bf42f136a91307",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uldnames.h",
+            "sha1": "dfb368bea52452b265553d954897128e0c26810e",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ubrk.h",
+            "sha1": "5be08d1d77e66f90187059b42ec02f5323c000a3",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/strenum.h",
+            "sha1": "6193ced697c07c262eb4e46a74c7f07f7408b2c1",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/normalizer2.h",
+            "sha1": "4772f504b0fb3aa9d2520397d5088a4e8d993e44",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ures.h",
+            "sha1": "1541f787e62461e4f181864ef3707504d0a93117",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/normlzr.h",
+            "sha1": "6a706f9bcbd92c4c66dac8090b491022cc003e51",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/parsepos.h",
+            "sha1": "88ea8803fd6bc8099ba693c97aba52c309e54f4d",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/colldata.h",
+            "sha1": "a877b3dcfbba28c54ac3a5d5cf2fd1fe55a6a906",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucal.h",
+            "sha1": "6c21618fa8850d6efc95f181dd068c46863d81a5",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucsdet.h",
+            "sha1": "68d889f0feea150ca96c2f006a7850fd8a165465",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucnv.h",
+            "sha1": "2fdd166c1921656ac6f4d942b2eb462dbc248a7b",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/currpinf.h",
+            "sha1": "aa0ae30189cc5e3cd9677a552ce1219ce892f85c",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utf16.h",
+            "sha1": "9607b00bdfbe9bc1f3066349ee4b3524f5f0feda",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/tztrans.h",
+            "sha1": "c5fd1cc15c57be11623d30cac6c8665e1663de33",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucoleitr.h",
+            "sha1": "684a0974a0b57480fd01be4e60ad33c24488e03d",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/urep.h",
+            "sha1": "f3c8a93060291516b35e1e05db51c54ae55e7708",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/udatpg.h",
+            "sha1": "0de2ebb61a88963add60e99d469ac9a6faa66fa0",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/gregocal.h",
+            "sha1": "60b2432c856371367c31483e3d436af5a20062c4",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/tzrule.h",
+            "sha1": "f899e4517f3a5376374c8f99addfb73262a20383",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uvernum.h",
+            "sha1": "75c36265e729b0585e1ab83b005d9c5f478aa1f5",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/tblcoll.h",
+            "sha1": "012f9a3563b10f86cabe50b282c1173a8aabcfb5",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uintrnal.h",
+            "sha1": "89cd95b33912e6a03ae0667b22bd3d6b2fa3fed4",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/umachine.h",
+            "sha1": "8ed299eeee0a0081072a6ef2cf762b7b7095cc86",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/locid.h",
+            "sha1": "2694bf481f91ccbe37b6dd4edca04e72444ced19",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/unorm2.h",
+            "sha1": "e7022bfba29fbc6b6de3428cddadf635eb5af8ab",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/translit.h",
+            "sha1": "52fb5a671cb44a451fc4e12fce02743464d29f3a",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/unum.h",
+            "sha1": "025d9ff1f7107fd410c2d12eca5dd255e7b9aa79",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/measure.h",
+            "sha1": "4b483fd8075ea994074188a8694f31d418fcc1de",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucnv_err.h",
+            "sha1": "feca704859eec2acdfd59816e5006d9cb27ae700",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/numfmt.h",
+            "sha1": "86f3cbe2ef154b95f51753c890a77ca2ec49b63e",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/caniter.h",
+            "sha1": "8eb0a037ce33a76637d85cf8ad7bc6114407a0f7",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/rbbi.h",
+            "sha1": "a39ec60c8a6a4395de395542e9bece6e3c51397a",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/regex.h",
+            "sha1": "ba39b185b971c948445020bacfd5e54d79ac7d8d",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uchar.h",
+            "sha1": "64b93f3df0009f57fac370dbca69e0929fd15c18",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/dtitvfmt.h",
+            "sha1": "dc1fcede4103262de9a0264d51a3269df207813f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/dtitvinf.h",
+            "sha1": "49970f08e1e2beffee9859b4c0783086ea701f1e",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/currunit.h",
+            "sha1": "ffcf2beefeafb503d3f82ffa2b851e9d193524a3",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/plurrule.h",
+            "sha1": "4ce6b159e90d8798f85fa218b86e2a590e7a5882",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/tmutamt.h",
+            "sha1": "10be2a5100f02ebc45e8589da257a4666cbad905",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucurr.h",
+            "sha1": "96f8f31d587831b6d2c72419348ca3ae9ec5f77b",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/dcfmtsym.h",
+            "sha1": "9d2ab6896e9f14448085fb5bfc0d6fd5ff795726",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucnvsel.h",
+            "sha1": "0db0643883333ab569dfb7efd7cb500079dd6acf",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ubidi.h",
+            "sha1": "0baa3a91369c2f6ea5be686e935f74d8172664b1",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/calendar.h",
+            "sha1": "079368f1a673730a2d49d9670bfed0bfc7487fb5",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/platform.h",
+            "sha1": "5199bf28715d46c2cf0c872df89ec6816cafb007",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/datefmt.h",
+            "sha1": "7ea98728b66f186a51065b2ff553bd57a0063861",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uversion.h",
+            "sha1": "e8668a00381f8eeefee063e4ea731dcc7be3e987",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/pwin32.h",
+            "sha1": "d0c44b8d9622794a0212fd34ab6bd8ae7752dfc5",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uset.h",
+            "sha1": "a8ec4262d563e173dbcea338baf5d0329e9999a5",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utf32.h",
+            "sha1": "cebcff11a252ba4c20d0a5a8fa61c9e34f2e833f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/unifilt.h",
+            "sha1": "ae70f58e04dfa41319804dbf51b243fa87b23b9c",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/dtptngen.h",
+            "sha1": "cd635473deef015e2eaebe836dc879f4208b21b5",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/resbund.h",
+            "sha1": "45988406a711333d59f8790fe1be9e28f150fc3a",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utf_old.h",
+            "sha1": "c442a4e17e2c78afdbf156d425d23e800d950406",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/umisc.h",
+            "sha1": "676f856a3e2153edfdb8dd59a097eda3e0930171",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/dbbi.h",
+            "sha1": "736e94f7c49a13b3762b6807f29ea47cb6e9a667",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utf8.h",
+            "sha1": "e9b3ad1d7d8ce5d555e0b308038d01e2b7a9e954",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/coll.h",
+            "sha1": "14e835c000709851d7be9b9b8833662c91ff519d",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uregex.h",
+            "sha1": "9d9f4c485a13f2b9ba01a75354bd50631e4d842f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ucat.h",
+            "sha1": "480d896b4bf7e9652f891a6333554c8c9f3f5727",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uobslete.h",
+            "sha1": "83232e03f5cb5e557cd82b3104a27ce10186144b",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/bmsearch.h",
+            "sha1": "81a01533f05a9d877ac1f6ef44fe822efe981dc6",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/search.h",
+            "sha1": "4076feeb9d8601881aa70dda129e2789ba9e5d5a",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/usetiter.h",
+            "sha1": "7a887e5001850f8fbdda2e2151949281a4025d00",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uconfig.h",
+            "sha1": "d40a1d7534f7654fbfe928bb9d2d562be7485ca2",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/udat.h",
+            "sha1": "46931f5ce2c5f9fc66460bbe58f52af7ed2fb09c",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/msgfmt.h",
+            "sha1": "ed8e429e432a4b214f8101484b4717c70f60f8ca",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/decimfmt.h",
+            "sha1": "8182ffd82d1b87172d9d255925aa5102f42c6b8b",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uloc.h",
+            "sha1": "52e5793a21ff38d306f7bef4c7a843d045487d9c",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/choicfmt.h",
+            "sha1": "693681af4dd704fe44363610d39e3ccaf2847c1f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uscript.h",
+            "sha1": "be51f638629bda46ad3631aa6ff252bfc00ae7b3",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uobject.h",
+            "sha1": "5757f96c6f1de04bc9efbca7a86b2b20927e1172",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/simpletz.h",
+            "sha1": "27eef760eff1fb2c6a8bd64983707bab79e5997a",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/numsys.h",
+            "sha1": "b286e91e6ab2eccbc1a62f1cde33e186d311b751",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/bms.h",
+            "sha1": "8cd75c3d19c8cde417dc3b68665a35f69594a948",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utrace.h",
+            "sha1": "003ce0db0620396f71c91e022ef2b67d3a3f5639",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/brkiter.h",
+            "sha1": "039af4f453f9ad5bb40f5af5037ed415ab5334a8",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/udata.h",
+            "sha1": "19954bc2dc880c9cd539b9dd81133c0b30e43ce3",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ushape.h",
+            "sha1": "5705601ee4e72aa31c2f35f67de5efce32faffcb",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/curramt.h",
+            "sha1": "082205b7714ac6f026758b1b5dd13da4848b4bcd",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/udeprctd.h",
+            "sha1": "e4403825d558031a3217d87c9e02f23c36010623",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/usprep.h",
+            "sha1": "1c2cbc430356ef578317197954e43b1c51023b48",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/unorm.h",
+            "sha1": "cbb3b651661c5d8aaa108c62d1a15259e7de27f9",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/format.h",
+            "sha1": "2a00b503f2b8625756f2da0127f74dd8b769252a",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/fmtable.h",
+            "sha1": "040c9c84b61391f58ebc447979242acd05f7f5ac",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/schriter.h",
+            "sha1": "a797f7261ebcf8f1af30d94dd7967334e580e822",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/vtzone.h",
+            "sha1": "2357a36a7c239b3a07617eff9c3ca2b5ba6323bd",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/udraft.h",
+            "sha1": "97c407c0be37d4dca21ca630018dd1ebc7e0d3c5",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/measunit.h",
+            "sha1": "25bfbc78cb81151a9ce9abcbd34e009963d8f652",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/fpositer.h",
+            "sha1": "fbbb64a5f4c0caa8bde7b7b356b6e0e8e40cd48c",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uspoof.h",
+            "sha1": "cccd59f615a7a5bafd07983f85d790c4f8e8ecec",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utypes.h",
+            "sha1": "efb923380e7c34afd0616e42cd3f1ea1b87ae0c7",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/utf.h",
+            "sha1": "7ee7cb928b890a5268205f4182e150c05c918e07",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/uidna.h",
+            "sha1": "7b373aee15bdbdf60dd01c06fe70595874699e9f",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/dtfmtsym.h",
+            "sha1": "51f70d6b6ed57c628c16555b3bd41c75610be9af",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/selfmt.h",
+            "sha1": "d43e69e959c7856920f5ac6a3c3a59bd97bfedde",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/unistr.h",
+            "sha1": "1990f9fd0357e449e48bb1900c16ea6f73e98947",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/smpdtfmt.h",
+            "sha1": "e98ff85e36417c89ce35d4334bf5bbb6dc322c99",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/putil.h",
+            "sha1": "2e6033ff1365a2e210d1bf11e797ea842f281cd4",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/tmunit.h",
+            "sha1": "83da07f836c9fe5d67a0fe64e1c7755b2cd19c46",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/errorcode.h",
+            "sha1": "039738e18c7e69a168b75b968fcabfaad6d7023d",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ustdio.h",
+            "sha1": "6a6f0cabe20857864ccd5bed66e97df22a6b95a0",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/ppalmos.h",
+            "sha1": "6dae27cbc530a05c1730a54b336ae2d93252fa26",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/locdspnm.h",
+            "sha1": "3aee0df2666d86d4e5f92aca088a6f715de54e17",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/usearch.h",
+            "sha1": "36bceac90f17a577e694f2004b1d22cd100a3dee",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/stringpiece.h",
+            "sha1": "81f690916120d16b9f7755474f295153b5772eae",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/fieldpos.h",
+            "sha1": "4ccae747f68a9be879139321ef4e348f6ced4aea",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/unimatch.h",
+            "sha1": "b6dc79a1cc59d79d853b17b3173f3062d2cf72c8",
+            "mode": "0644"
+        },
+        {
+            "path": "include/unicode/rep.h",
+            "sha1": "2975a0770c269e5fe378ba7e7bed50fc4f6c2a9a",
+            "mode": "0644"
+        }
+    ],
+    "depends": [],
+    "build": [
+	{
+            "command": "wget http://download.icu-project.org/files/icu4c/4.4.2/icu4c-4_4_2-src.tgz",
+            "ordinal": 1,
+            "note": ""
+        },
+        {
+            "command": "tar -xvf icu4c-4_4_2-src.tgz",
+            "ordinal": 2,
+            "note": ""
+        },
+        {
+            "command": "cd icu/source",
+            "ordinal": 3,
+            "note": ""
+        },
+	{
+            "command": "make install DESTDIR=/tmp/cbstaging/icu4c",
+            "ordinal": 4,
+            "note": ""
+        }
+     ]
+}

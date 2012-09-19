@@ -1,0 +1,87 @@
+{
+    "dirs":[
+        {
+            "path":"lib"
+        },
+        {
+            "path":"include"
+        }
+    ],
+    "files":[
+        {
+            "path":"lib/libv8.so",
+            "sha1":"3987d67d833c06b1730857a57cc327cbdab800f9",
+            "mode":"0775"
+        },
+        {
+            "path":"lib/libv8.ver",
+            "sha1":"229f397e523e81e1f9a6a0b08863c3266d0f95d9",
+            "mode":"0664"
+        },
+        {
+            "path":"include/v8-preparser.h",
+            "sha1":"96fb4518a7ac9af45c2be208ab60e0afceee3f2d",
+            "mode":"0664"
+        },
+        {
+            "path":"include/v8.h",
+            "sha1":"a2a780125dad20eaa8019d4e4fb8cba3027afa7c",
+            "mode":"0664"
+        },
+        {
+            "path":"include/v8-debug.h",
+            "sha1":"0d38ae60a00d9d5d87a0ba14b2cc3fb4480aa6e0",
+            "mode":"0775"
+        },
+        {
+            "path":"include/v8-profiler.h",
+            "sha1":"6fc06aa2d44167c77599314f1a0bdfc7d40b13de",
+            "mode":"0664"
+        },
+        {
+            "path":"include/v8-testing.h",
+            "sha1":"86392d25ca87fccd1ae581d219e384b82be589c0",
+            "mode":"0664"
+        },
+        {
+            "path":"include/v8stdint.h",
+            "sha1":"621d34cbdf0880c4ad1c8258af246bd06d7decef",
+            "mode":"0664"
+        }
+    ],
+    "depends":[
+        
+    ],
+    "build": [
+		{
+            "command": "git clone https://github.com/v8/v8.git",
+            "ordinal": 1,
+            "note": ""
+        },
+        {
+            "command": "cd v8",
+            "ordinal": 2,
+            "note": ""
+        },
+        {
+            "command": "scons -j 8 arch=x64 mode=release snapshot=on library=shared visibility=default",
+            "ordinal": 3,
+            "note": ""
+        },
+		{
+            "command": "cp libv8.* /tmp/cbstaging/v8/lib",
+            "ordinal": 4,
+            "note": "Staging dir v8 needs to be created manually."
+        },
+		{
+            "command": "cp include/* /tmp/cbstaging/v8/include",
+            "ordinal": 5,
+            "note": ""
+        },
+		{
+            "command": "git rev-parse HEAD > /tmp/cbstaging/v8/lib/libv8.ver",
+            "ordinal": 5,
+            "note": ""
+        }
+	]
+}

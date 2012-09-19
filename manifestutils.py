@@ -3,9 +3,8 @@ import os
 import hashlib
 import stat
 import json
-import logger
 
-from commons import CommonUtils, CommonConsts
+from commons import CommonUtils, CommonConsts, ResourceNotFoundError
 
 class ManifestGenerator:
     def __init__(self, package_name, version, platform, stage_dir, _target_file_path):
@@ -15,13 +14,11 @@ class ManifestGenerator:
         self._staging_dir = stage_dir
         self._target_file_path = _target_file_path
 
-    @classmethod
-    def instance_from_args(cls, args):
-        return cls(args.package_name, args.version, args.platform, args.stage_dir, args.target_file_path)
 
     def generate_manifest(self):
         manifest = {CommonConsts.MF_KEY_BUILD:[], CommonConsts.MF_KEY_DEPENDS:[], CommonConsts.MF_KEY_DIRS:[], CommonConsts.MF_KEY_FILES: []}
-
+        if not os.path.exists(self._staging_dir):
+            raise ResourceNotFoundError("Staging directory path not available. Path: {0}".format(self._staging_dir))
         for dirpath, dirnames, files in os.walk(self._staging_dir):
             dir_rel_path = os.path.relpath(dirpath, self._staging_dir)
             if dir_rel_path != ".":

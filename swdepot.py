@@ -20,37 +20,39 @@ class SoftwareDepot:
     #TODO:
     # Create a directory structure on depot too to avoid a conflict if a same files is present in different dirs ??
 
-    def add(self, package, version, platform, staging_dir, manifest_filepath):
+    def add(self, package_name, version, platform, staging_dir, manifest_filepath):
         try:
-            manifest_filename = CommonUtils.generate_manifest_filename(package, version, platform, "json")
+            manifest_filename = CommonUtils.generate_manifest_filename(package_name, version, platform, "json")
             if os.path.exists(os.path.join(self._depot_mf_path, manifest_filename)):
                 raise PackageExistsError("Package manifest file already exists in depot. Package name : {0}, manifest file: {1}.\n\
-                                             Either uninstall the package first or use update command to install the package.".format(CommonUtils.get_package_depo_name_from_manifest_file(manifest_filename),
+                                             Either uninstall the package first or use update command to install the package.".format(CommonUtils.generate_package_name(package_name,
+                                                                                                                                                                         version,
+                                                                                                                                                                         platform),
                                                                                                                                       manifest_filename))
             input_manifest_file = os.path.join(manifest_filepath, manifest_filename)
-            self._deploy_package(input_manifest_file, staging_dir)
+            self._deploy_package(package_name, version, platform, input_manifest_file, staging_dir)
         except Exception as e:
-            self._cleanup(manifest_filename)
+            self._cleanup(package_name, version, platform, manifest_filename)
             raise e
 
-    def update(self, package, version, platform, staging_dir, manifest_filepath):
+    def update(self, package_name, version, platform, staging_dir, manifest_filepath):
         try:
-            manifest_filename = CommonUtils.generate_manifest_filename(package, version, platform, "json")
+            manifest_filename = CommonUtils.generate_manifest_filename(package_name, version, platform, "json")
             input_manifest_file = os.path.join(manifest_filepath, manifest_filename)
-            self._deploy_package(input_manifest_file, staging_dir)
+            self._deploy_package(package_name, version, platform, input_manifest_file, staging_dir)
 
         except Exception as e:
-            self._cleanup(manifest_filename)
+            self._cleanup(package_name, version, platform, manifest_filename)
             raise e
 
-    def delete(self, package, version, platform,):
-        manifest_filename = CommonUtils.generate_manifest_filename(package, version, platform, "json")
-        self._cleanup(manifest_filename)
+    def delete(self, package_name, version, platform,):
+        manifest_filename = CommonUtils.generate_manifest_filename(package_name, version, platform, "json")
+        self._cleanup(package_name, version, platform, manifest_filename)
 
 
 
-    def _deploy_package(self, manifest_file, staging_dir):
-        depot_package_name = CommonUtils.get_package_depo_name_from_manifest_file(os.path.split(manifest_file)[1])
+    def _deploy_package(self, package_name, version, platform, manifest_file, staging_dir):
+        depot_package_name = CommonUtils.generate_package_name(package_name, version, platform)
         depot_pkg_dest_path = os.path.join(self._depot_df_path, depot_package_name)
         if not os.path.exists(depot_pkg_dest_path):
                 os.makedirs(depot_pkg_dest_path)
@@ -72,12 +74,12 @@ class SoftwareDepot:
         shutil.copy(manifest_file, self._depot_mf_path)
 
 
-    def _cleanup(self, manifest_filename):
+    def _cleanup(self, package_name, version, platform, manifest_filename):
         try:
             depot_mf = os.path.join(self._depot_mf_path, manifest_filename)
             if os.path.exists(depot_mf):
                 os.remove(depot_mf)
-            depot_pkg = CommonUtils.get_package_depo_name_from_manifest_file(manifest_filename)
+            depot_pkg = CommonUtils.generate_package_name(package_name, version, platform)
             depot_df = os.path.join(self._location, CommonConsts.SW_DEPOT_DATAFILES_DIR , depot_pkg)
             if os.path.exists(depot_df):
                 shutil.rmtree(depot_df)

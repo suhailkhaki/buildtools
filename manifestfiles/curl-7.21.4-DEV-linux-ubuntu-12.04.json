@@ -1,0 +1,431 @@
+{
+    "dirs": [
+        {
+            "path": "lib"
+        },
+        {
+            "path": "lib/pkgconfig"
+        },
+        {
+            "path": "bin"
+        },
+        {
+            "path": "share"
+        },
+        {
+            "path": "share/man"
+        },
+        {
+            "path": "share/man/man3"
+        },
+        {
+            "path": "share/man/man1"
+        },
+        {
+            "path": "include"
+        },
+        {
+            "path": "include/curl"
+        }
+    ],
+    "files": [
+        {
+            "path": "lib/libcurl.la",
+            "sha1": "82f2345e44380fecef5137beccb5f63ead13668f",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libcurl.so",
+            "sha1": "54b70d5d1f11d876f078e8e87936a6cf43942b25",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libcurl.so.4.2.0",
+            "sha1": "54b70d5d1f11d876f078e8e87936a6cf43942b25",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libcurl.so.4",
+            "sha1": "54b70d5d1f11d876f078e8e87936a6cf43942b25",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libcurl.a",
+            "sha1": "a1d15e1f317472d57510d425ebc34b5b7dfdd558",
+            "mode": "0644"
+        },
+        {
+            "path": "lib/pkgconfig/libcurl.pc",
+            "sha1": "a2135e32c2afb0e6f76cd00e3b3b1e5fdd3af505",
+            "mode": "0644"
+        },
+        {
+            "path": "bin/curl",
+            "sha1": "c53395b383b59855056949d0b9b2f02e51fe7cdc",
+            "mode": "0755"
+        },
+        {
+            "path": "bin/curl-config",
+            "sha1": "eec5eb6f8de910dd325d850d1425ff7e5820c982",
+            "mode": "0755"
+        },
+        {
+            "path": "share/man/man3/curl_easy_cleanup.3",
+            "sha1": "959217374a0b28df807f0d268488eec35f4dc59f",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_escape.3",
+            "sha1": "0590ccba2bda1b8151cd718f8cfda9cd80758ca1",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_formget.3",
+            "sha1": "09cedadede27c536cf949b7570f6c25ba5de8391",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_add_handle.3",
+            "sha1": "c2b9f41aadb717e633d79335f0a3e7cacb39db4c",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_reset.3",
+            "sha1": "8f4a6a33e38522de11a75aae4fde5cd4b8bdd7b6",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_remove_handle.3",
+            "sha1": "52a2b4d85eddf7c5a2280200d83bc950906f10e3",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/libcurl-errors.3",
+            "sha1": "a11ab68f6f5dbbccfc8ca9764a233ca47f7defe1",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_recv.3",
+            "sha1": "6fd895e02e5b0d6f93565c80e123b8ec6c6f08d9",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_share_setopt.3",
+            "sha1": "1b836045aa2b599dcb2a23cee94b8ad4ff7adcf0",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_global_cleanup.3",
+            "sha1": "0eee975d5fbdd822e1aa9f887dd497afef42ae65",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_mprintf.3",
+            "sha1": "e1607b02cf8c5fc747b41c56a5ea1e64beb36c1e",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_socket_action.3",
+            "sha1": "86badfb120b3062726eadb79f33e7618347ee0c6",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_strerror.3",
+            "sha1": "90916fd3ac4e884ed9d12c99bb7dfbf91907992b",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_version.3",
+            "sha1": "759f40fbed32de1c55cd533cbc0fa528e5914939",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_init.3",
+            "sha1": "8844e0d9f2d13bafe79c0d5f36e48c08a2308926",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_slist_free_all.3",
+            "sha1": "7d0ef21a3ab94882b15f6e4274871a82d8f07077",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_unescape.3",
+            "sha1": "e9f97e0df077cf2510790f75a7329ba575ae1c04",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_share_init.3",
+            "sha1": "e62ddfcb675b7e47db76676dd5e9d2ce83eef1c2",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_formadd.3",
+            "sha1": "29b2351e2d08262a24199ce96a611a2a0738efb4",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_timeout.3",
+            "sha1": "bcbb68037cf8e424a7cba3e786da3c63e31cf978",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_share_cleanup.3",
+            "sha1": "be2093206ef2e7e7c8f6f920f0434c5be825b150",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_version_info.3",
+            "sha1": "34f30cf0e6417d761f40d3e6dc67b1f7a3326408",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_strequal.3",
+            "sha1": "84d719ee5e615559e3f85784ff7e15cf678b0a9b",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_getinfo.3",
+            "sha1": "e838aa932694bd9990efdf30ac649b49e63a531b",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_info_read.3",
+            "sha1": "dfa7d73dfdb996e5757d291c3ea5ab4c1e4fb78a",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_strerror.3",
+            "sha1": "b52f943328c117d80fb02050d63242964f777eb4",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_assign.3",
+            "sha1": "6267350e6752a830fefd7f48b0a52c1e3e30591a",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_pause.3",
+            "sha1": "b0001e42bc3de6acd53d0398fdc32f9e8d0a8425",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/libcurl-tutorial.3",
+            "sha1": "0bf2f8538da787dae425d7700ea6cb5e7416ee2a",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_perform.3",
+            "sha1": "33c1ac2850c58c0aa3e592eef3ab824bc567662c",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_global_init_mem.3",
+            "sha1": "a958318f53414cbe592db3f8afd49d049ec103fa",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_setopt.3",
+            "sha1": "81bdbffd764518db1ae048aa70bf377f5edcbc1d",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/libcurl-easy.3",
+            "sha1": "d035f6b5e0abb8048a48d3552aabb506fa6a7f03",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_duphandle.3",
+            "sha1": "088c03f77893740ec2bd1fae6056ecf1a196a6c4",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_unescape.3",
+            "sha1": "40261c2f0391d1689e0a97cc938cbc14eb722c3c",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_share_strerror.3",
+            "sha1": "90152625c9b4f3a10cb764cf21c372d2ec1ced10",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_global_init.3",
+            "sha1": "097785452298bff9e03b87bb58af070d5df8831c",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_cleanup.3",
+            "sha1": "14cbff3e4f5be5bd5a926c4ef1d02551f5713610",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_init.3",
+            "sha1": "32cb618983a1c6c07f1d5a74e98bac2e82c18a70",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_free.3",
+            "sha1": "38d88b7f67b876b47641bcbca0a5ec5e62a83114",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_escape.3",
+            "sha1": "d330ad5e7a1b6cdf7df74fd6ad39639538ccc1c4",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_perform.3",
+            "sha1": "cf889cdbb2eaafb24ecb20f011ccc78a98c2eb31",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_setopt.3",
+            "sha1": "2101eb79aa11c61fb3434686b448c5a4e3b8c2dd",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_socket.3",
+            "sha1": "7f2f577dbb36536ed6edb3c13d874c746bfca2ca",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_easy_send.3",
+            "sha1": "2e2528b81f0c3550aee3708a2d190e07d546ed39",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_getdate.3",
+            "sha1": "eefb54a05d86556640068d3cdf25f2619ca08f2d",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/libcurl-share.3",
+            "sha1": "415a9647828af7ce12f8eb1f6a6716ad2903d1c5",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_formfree.3",
+            "sha1": "bbd76ef71aa4525700aed61a39ee44390483b069",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/libcurl-multi.3",
+            "sha1": "bc031b75c9c668f8d5c41f377011d1e0ca7c9f18",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_multi_fdset.3",
+            "sha1": "592c430ae61f0f35d69636b6429871322febd04a",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/libcurl.3",
+            "sha1": "7543c864a872a0ffb04e6a2ce73a5fd651f4e6f1",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_getenv.3",
+            "sha1": "2e65c49c669831ef40eef17fcc5b9435a49bf3ae",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man3/curl_slist_append.3",
+            "sha1": "7d46e0f94f446a19e830b2969fc5b76242e8d1fb",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/curl.1",
+            "sha1": "ea2ee35d62220a7d1ae1769fd6157c0b2904b7f4",
+            "mode": "0644"
+        },
+        {
+            "path": "share/man/man1/curl-config.1",
+            "sha1": "7c8488bf376cdd7f824d590d7f0fd67fb05d4959",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/typecheck-gcc.h",
+            "sha1": "10ea3d0255b07589796fe8afbc7cd49671d9dbb6",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/curlrules.h",
+            "sha1": "d0047cf54f4a22600d2a3a1bd645546927d57c2a",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/easy.h",
+            "sha1": "9d0acee348bc5376fac5b064129232fc68c50676",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/mprintf.h",
+            "sha1": "39a47fec115eafe6616c500b601b3c506316e66a",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/types.h",
+            "sha1": "f79eba1f2da402ef3b891738551746dc198d3ab4",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/stdcheaders.h",
+            "sha1": "fce8e91566ed2e6c42751350d55609e77e457638",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/curlbuild.h",
+            "sha1": "2794289d27a33d1bcaec5090681787b040144d6b",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/curl.h",
+            "sha1": "b302980a92dc2365d245453a7716a9f0cc24d10c",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/curlver.h",
+            "sha1": "fae0c3003891c6f08c91c2338bd0513697ec0d03",
+            "mode": "0644"
+        },
+        {
+            "path": "include/curl/multi.h",
+            "sha1": "5110bb7eca662400784b9802415f2d5aa36c4064",
+            "mode": "0644"
+        }
+    ],
+    "depends": [],
+    "build": [
+        {
+            "command": "wget http://s3.amazonaws.com/couchbase-grommit/curl-7.21.4-DEV.tar.gz",
+            "ordinal": 1,
+            "note": ""
+        },
+        {
+            "command": "tar -xvf curl-7.21.4-DEV.tar.gz",
+            "ordinal": 2,
+            "note": ""
+        },
+        {
+            "command": "cd curl-7.21.4-DEV",
+            "ordinal": 3,
+            "note": ""
+        },
+        {
+            "command": "vi ./lib/ssluse.c",
+            "ordinal": 4,
+            "note": "This a manual modification. There is a bug in the downloaded package for ubuntu 11.0 and above. refer http://anebg.net/2012/01/25/lib-libslibcurl-so-undefined-reference-to-sslv2_client_method/"
+        },
+        {
+            "command": "./configure --prefix=/opt/couchbase",
+            "ordinal": 5,
+            "note": ""
+        },
+        {
+            "command": "make install DESTDIR=/tmp/cbstaging/curl",
+            "ordinal": 6,
+            "note": ""
+        }
+    ]
+}

@@ -1,0 +1,197 @@
+{
+    "dirs":[
+        {
+            "path":"test"
+        },
+        {
+            "path":"test/py25"
+        }
+    ],
+    "files":[
+        {
+            "path":"_sqlite.so",
+            "sha1":"126f322f3c8c0cc25340303587032b90b3e99140",
+            "mode":"0775"
+        },
+        {
+            "path":"__init__.py",
+            "sha1":"88d637be9c8e0cba67598a582537e1a272e26025",
+            "mode":"0664"
+        },
+        {
+            "path":"__init__.pyc",
+            "sha1":"62c1f671db41b08edab7ce90212f40bec2f8f43a",
+            "mode":"0664"
+        },
+        {
+            "path":"dump.pyc",
+            "sha1":"f04574025e58afbfb87880ea23d5c9828f6559a9",
+            "mode":"0664"
+        },
+        {
+            "path":"dbapi2.pyc",
+            "sha1":"88c5f24f31f3d068162ee212dcc2051bd05e118f",
+            "mode":"0664"
+        },
+        {
+            "path":"dump.py",
+            "sha1":"d907d2b006f470ccb2ee23d8ae42039f0a2c2617",
+            "mode":"0664"
+        },
+        {
+            "path":"dbapi2.py",
+            "sha1":"f28bd486f8ee3ab037beadd39377b55191d27151",
+            "mode":"0664"
+        },
+        {
+            "path":"test/transactions.py",
+            "sha1":"38ea84764907ee331b510feb3c5a4c33e03ff627",
+            "mode":"0664"
+        },
+        {
+            "path":"test/hooks.pyc",
+            "sha1":"bc9886542648befc9d79ea1d84dc9b0a45b60597",
+            "mode":"0664"
+        },
+        {
+            "path":"test/regression.pyc",
+            "sha1":"f0ebab227b326358b352095e34a8ffeab87bb97b",
+            "mode":"0664"
+        },
+        {
+            "path":"test/types.pyc",
+            "sha1":"43258986bef1f0e7cb81cce845028e1f46eb1c57",
+            "mode":"0664"
+        },
+        {
+            "path":"test/dbapi.py",
+            "sha1":"c246df3411479f5ae86b213e19f8603ceda0cbf6",
+            "mode":"0664"
+        },
+        {
+            "path":"test/__init__.py",
+            "sha1":"dccf1871792010dd22d0ad17274bd4111eacd765",
+            "mode":"0664"
+        },
+        {
+            "path":"test/dbapi.pyc",
+            "sha1":"c603edbc2224b74f86a68de24c24a0cbcef3de72",
+            "mode":"0664"
+        },
+        {
+            "path":"test/regression.py",
+            "sha1":"9c66417a72f54f05c948dc5191cbdcfdeaba936f",
+            "mode":"0664"
+        },
+        {
+            "path":"test/__init__.pyc",
+            "sha1":"13cb8bd8ddc1437371f73d1f748148589a4700a2",
+            "mode":"0664"
+        },
+        {
+            "path":"test/dump.pyc",
+            "sha1":"905844ce0b64b783c8bb39cb70437b5b6f2de216",
+            "mode":"0664"
+        },
+        {
+            "path":"test/userfunctions.py",
+            "sha1":"c695edac3821a9f86e1416437bf645a20d58cff0",
+            "mode":"0664"
+        },
+        {
+            "path":"test/hooks.py",
+            "sha1":"6c62bfeb17e161764b774aad65bc4d43c1a3c72d",
+            "mode":"0664"
+        },
+        {
+            "path":"test/types.py",
+            "sha1":"02a46e58e854c9ea2c69c1706d08437437f8d814",
+            "mode":"0664"
+        },
+        {
+            "path":"test/transactions.pyc",
+            "sha1":"6ae3df2019fe9e65af9a7af180b20399a1f5de96",
+            "mode":"0664"
+        },
+        {
+            "path":"test/dump.py",
+            "sha1":"456e5b80231a40d83c6c84c9c2c3349725d172f1",
+            "mode":"0664"
+        },
+        {
+            "path":"test/userfunctions.pyc",
+            "sha1":"4777ac8cfdd5b2cec8fab7c5222da108076198f6",
+            "mode":"0664"
+        },
+        {
+            "path":"test/factory.pyc",
+            "sha1":"4ad24e4c53d88a482ded40622da74775844bde36",
+            "mode":"0664"
+        },
+        {
+            "path":"test/factory.py",
+            "sha1":"04a07432a91406e2576c461d8516bc0d6b63549e",
+            "mode":"0664"
+        },
+        {
+            "path":"test/py25/__init__.py",
+            "sha1":"adc83b19e793491b1c6ea0fd8b46cd9f32e592fc",
+            "mode":"0664"
+        },
+        {
+            "path":"test/py25/__init__.pyc",
+            "sha1":"2d514a1c628cfd66c96b65610afd5ae868ec4e00",
+            "mode":"0664"
+        },
+        {
+            "path":"test/py25/py25tests.pyc",
+            "sha1":"459c3396661bf7557d9185e7142309a3109a0d1f",
+            "mode":"0664"
+        },
+        {
+            "path":"test/py25/py25tests.py",
+            "sha1":"c5d0b815931f5e6598512eee3e62e4d4a4da4c77",
+            "mode":"0664"
+        }
+    ],
+    "depends": [
+        {
+            "package": "sqlite3",
+            "version": "autoconf-3071400",
+            "platform": "linux-ubuntu-12.04",
+            "manifest": "sqlite3-autoconf-3071400-linux-ubuntu-12.04.json"
+        }
+    ],
+    "build": [
+	{
+            "command": "wget http://pysqlite.googlecode.com/files/pysqlite-2.6.3.tar.gz",
+            "ordinal": 1,
+            "note": ""
+        },
+        {
+            "command": "tar -xvf pysqlite-2.6.3.tar.gz",
+            "ordinal": 2,
+            "note": ""
+        },
+        {
+            "command": "cd pysqlite-2.6.3/",
+            "ordinal": 3,
+            "note": ""
+        },
+        {
+            "command": "nano setup.cfg",
+            "ordinal": 4,
+            "note": "Modify this file to verify if it has the correct sqllite3 path else point to the correct sqlite3 path if "
+        },
+		{
+            "command": "python setup.py build",
+            "ordinal": 5,
+            "note": ""
+        },
+		{
+            "command": "python setup.py install --prefix=/tmp/cbstaging/pysqlite",
+            "ordinal": 6,
+            "note": ""
+        }
+	]
+}

@@ -8,12 +8,13 @@ import shutil
 import json
 import logging
 
-from commons import CommonConsts, CommonUtils
+from commons import CommonConsts, CommonUtils, ResourceNotFoundError
 from manifestutils import ManifestGenerator
 from swdepot import SoftwareDepot
+from depinstall import PackageInstaller
 
 # directory paths from current directory
-DIR_UNITTEST_RT = "v20unittestruntime"
+DIR_UNITTEST_RT = os.path.join("/tmp", "v20unittestruntime")
 DIR_DOWNLOAD = os.path.join(DIR_UNITTEST_RT, "v20downloads")
 DIR_STAGING = os.path.join(DIR_UNITTEST_RT, "v20staging")
 DIR_SNAPPY = os.path.join(DIR_STAGING, "snappy")
@@ -29,6 +30,8 @@ SNAPPY_PKG_NAME = "snappy"
 SNAPPY_VERSION = "1.0.5"
 SNAPPY_PLATFORM = "ubuntu-12.04"
 SNAPPY_MANIFEST_FILENAME = "snappy-1.0.5-ubuntu-12.04.json"
+SNAPPY_INSTALLDIR = DIR_INSTALL
+SNAPPY_INSTALDIR_ETC_MF = os.path.join(DIR_INSTALL, "etc", "packages", SNAPPY_MANIFEST_FILENAME)
 
 class BaseTestCase(unittest.TestCase):
 
@@ -59,7 +62,12 @@ class BaseTestCase(unittest.TestCase):
 
     '''
     check if snappy is downloaded  to a folder "download".
-    if not then download it from a link. 
+    if not then download it from a link. mfn = CommonUtils.generate_manifest_filename("snappy", "1.0.5", "ubuntu-12.04", "json")
+        with open (os.path.join(DIR_DEPOT_TEMP, mfn)) as f:
+            manifest = json.load(f)
+        assert set([ CommonConsts.MF_KEY_BUILD, CommonConsts.MF_KEY_DEPENDS, CommonConsts.MF_KEY_DIRS, CommonConsts.MF_KEY_FILES]) == set(manifest)
+        assert len(manifest[CommonConsts.MF_KEY_DIRS]) == 5
+        assert len(manifest[CommonConsts.MF_KEY_FILES]) == 16
     extract the snappy in the dowload folder.
     create a staging folder v20staging and install the snappy in that folder using gnu tool commands with --prefix
     and DEST attributes.
@@ -118,6 +126,10 @@ class BaseTestCase(unittest.TestCase):
         m = ManifestGenerator(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, os.path.join(DIR_SNAPPY_STAGING), DIR_DEPOT_TEMP)
         m.generate_manifest()
 
+    def add_snappy_to_depot(self):
+        sd = SoftwareDepot(DIR_DEPOT)
+        sd.add(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, DIR_SNAPPY_STAGING, os.path.join(DIR_DEPOT_TEMP))
+
 
 class ManifestTestCases(BaseTestCase):
     def test_genfile(self):
@@ -133,6 +145,16 @@ class ManifestTestCases(BaseTestCase):
         assert set([ CommonConsts.MF_KEY_BUILD, CommonConsts.MF_KEY_DEPENDS, CommonConsts.MF_KEY_DIRS, CommonConsts.MF_KEY_FILES]) == set(manifest)
         assert len(manifest[CommonConsts.MF_KEY_DIRS]) == 5
         assert len(manifest[CommonConsts.MF_KEY_FILES]) == 16
+
+    # Negative testing
+    def test_genfile_when_stagingdir_notpresent(self):
+        error = False
+        try:
+            m = ManifestGenerator(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, os.path.join("xxx"), DIR_DEPOT_TEMP)
+            m.generate_manifest()
+        except ResourceNotFoundError as e:
+            error = True
+        assert error
 
 class SWDepoTestCases(BaseTestCase):
     def setUp(self):
@@ -188,5 +210,26 @@ class SWDepoTestCases(BaseTestCase):
         sd = SoftwareDepot(DIR_DEPOT)
         sd.list()
 
+class PackageInstallTestCases(BaseTestCase):
+
+    def setUp(self):
+        BaseTestCase.setUp(self)
+        self.generate_manifest_file()
+        self.add_snappy_to_depot()
+
+    def test_install_basic(self):
+        PackageInstaller(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, DIR_INSTALL, DIR_DEPOT).install()
+
+        assert os.path.exists(SNAPPY_INSTALDIR_ETC_MF)
+        assert CommonUtils.get_filecount_for_dir_tree(SNAPPY_INSTALLDIR) == 17
+
+    def test_install_update(self):
+        PackageInstaller(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, DIR_INSTALL, DIR_DEPOT).install()
+        assert os.path.exists(SNAPPY_INSTALDIR_ETC_MF)
+        PackageInstaller(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, DIR_INSTALL, DIR_DEPOT).install()
+        assert os.path.exists(SNAPPY_INSTALDIR_ETC_MF)
+        assert CommonUtils.get_filecount_for_dir_tree(SNAPPY_INSTALLDIR) == 17
+
+
     if __name__ == "__main__":
-            unittest.main()
+        unittest.main()

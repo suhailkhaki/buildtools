@@ -14,6 +14,8 @@ Voltron20 workflow has three stages
 
 3. Installation: Package is installed as per configuration provided in manifest file for that given package. Any dependency defined in the manifest file is installed recursively.
 
+<i>The stage 1 and 2 are the part of the process to populate the software depot with the dependency packages. The stage 3 is the actual installation on the user system.</i>
+
 Manifest file Structure
 ------------------------
 
@@ -27,23 +29,25 @@ Manifest file Structure
 	   "files" :[
 	     {
 	       "path" : "The relative pathname to the file to install",
-	       "sha1" : "The sha1 of the file"
+	       "sha1" : "The sha1 of the file",
 	       "mode" : "The file mode"
 	     }
 	   ],
 	   
 	   "depends":[
 	     {
-	       "package": "name of the dependent package"
-	       "version": "version of the dependent package we want"
-	       "paltform": "target installation platform of dependent package"
+	       "package": "name of the dependent package",
+	       "version": "version of the dependent package we want",
+	       "platform": "target installation platform of dependent package",
 	       "manifest": "manifest file name for the dependent package as defined in software depot. \n
 			    If we provide the this attribute then other attributes are optional"
 	     }
 	   ]
 	    
 	   "build":[
-	     { "command": "command to install package to staging area."
+	     { "command": "command to install package to staging area.",
+	       "ordinal": "sequence number in which command is executed",
+	       "note": "Any notes and remarks"
 	     }
 	  ]
 	}
@@ -58,6 +62,12 @@ The commands maked with tick are currently implemented ones.
 
 Example 1 - Snappy
 ------------------
+This examples assumes following directory structure
+
+	Staging Directory : /tmp
+	Software Depot: /cbdepot
+	Install Directory: /cbinstall
+
 In this example, 
 * Staging -> Step 1,2 and 3
 * Deployment -> Step 4
@@ -65,28 +75,28 @@ In this example,
 
 1. Download Snappy and extract it:
 
-		http://snappy.googlecode.com/files/snappy-1.0.5.tar.gz
+		wget http://snappy.googlecode.com/files/snappy-1.0.5.tar.gz
+		tar -xvf snappy-1.0.5.tar.gz
+		cd snappy-1.0.5/
 
 2. Compile Snappy:
 		
 		./configure --prefix=/opt/couchbase
-
-
 		gmake install DESTDIR=/tmp/snappy
 
 3. Generate manifest file:
 	  
 		python voltron20.py manifest genfile --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" 
-		-sd="/tmp/snappy/opt/couchbase" -tfp="/home/suhail/workspace/temp/manifest-files"
+		-sd="/tmp/snappy/opt/couchbase" -tfp="/tmp"
 	
 
 4. Deploy the binaries to our software depot:
 
 		python voltron20.py depot -l="/cbdepot" add --package_name="snappy" -ver="1.0.5" 
-		-p="ubuntu-12.04" -sd="/tmp/snappy/opt/couchbase" -md="/home/suhail/workspace/temp/manifest-files"
+		-p="ubuntu-12.04" -sd="/tmp/snappy/opt/couchbase" -md="/tmp"
 
 5. Install it to the directory named install:
 
 		install --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" 
-		-d="/home/suhail/cbinstall" -depol="/cbdepot"
+		-d="/cbinstall" -depol="/cbdepot"
 

@@ -1,0 +1,129 @@
+{
+    "dirs": [
+        {
+            "path": "lib"
+        },
+        {
+            "path": "share"
+        },
+        {
+            "path": "share/doc"
+        },
+        {
+            "path": "share/doc/snappy"
+        },
+        {
+            "path": "include"
+        }
+    ],
+    "files": [
+        {
+            "path": "lib/libsnappy.a",
+            "sha1": "8c686c687d2e1a5af596e7cef85d7f880c3d5364",
+            "mode": "0644"
+        },
+        {
+            "path": "lib/libsnappy.so.1",
+            "sha1": "de142a0bb3ce56133a56bbaea39804efc0c971e1",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libsnappy.so.1.1.3",
+            "sha1": "de142a0bb3ce56133a56bbaea39804efc0c971e1",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libsnappy.so",
+            "sha1": "de142a0bb3ce56133a56bbaea39804efc0c971e1",
+            "mode": "0755"
+        },
+        {
+            "path": "lib/libsnappy.la",
+            "sha1": "90db5ebc9c265f3d92703b1c6d573423ba35d79d",
+            "mode": "0755"
+        },
+        {
+            "path": "share/doc/snappy/INSTALL",
+            "sha1": "bbc89f8fc9083ae797f39d0369f1b0ef3788c80a",
+            "mode": "0644"
+        },
+        {
+            "path": "share/doc/snappy/format_description.txt",
+            "sha1": "9ab622100453d00b7576802e9a22c8f9f53e5961",
+            "mode": "0644"
+        },
+        {
+            "path": "share/doc/snappy/README",
+            "sha1": "82a91473b3dcaac7bf64f978e312ef41cd763d94",
+            "mode": "0644"
+        },
+        {
+            "path": "share/doc/snappy/NEWS",
+            "sha1": "81fea2a901c97eee32f6ae84f4a841e9b5194a20",
+            "mode": "0644"
+        },
+        {
+            "path": "share/doc/snappy/ChangeLog",
+            "sha1": "111813ed092291ea125237c198d63ab9782455ef",
+            "mode": "0644"
+        },
+        {
+            "path": "share/doc/snappy/COPYING",
+            "sha1": "0d45aa696e5c82d8d1a1a1bbdc55d8e5fc328ccc",
+            "mode": "0644"
+        },
+        {
+            "path": "share/doc/snappy/framing_format.txt",
+            "sha1": "b4697ac1841d4e303f4ffd7d8f40f5dd158e66d1",
+            "mode": "0644"
+        },
+        {
+            "path": "include/snappy-c.h",
+            "sha1": "d60e7fc420c8f86e63b53117409714e91ad2973b",
+            "mode": "0644"
+        },
+        {
+            "path": "include/snappy-sinksource.h",
+            "sha1": "a8fb0b99e2fb09fe22ed241b54c8522d6a44f4bd",
+            "mode": "0644"
+        },
+        {
+            "path": "include/snappy-stubs-public.h",
+            "sha1": "b6c56a876ce28e153642ba0bfac9d93f3aab3ba8",
+            "mode": "0644"
+        },
+        {
+            "path": "include/snappy.h",
+            "sha1": "f59876a36c83446e3c109c0a6e2cc6e46d19021b",
+            "mode": "0644"
+        }
+    ],
+    "depends": [],
+    "build": [
+{
+            "command": "wget http://snappy.googlecode.com/files/snappy-1.0.5.tar.gz",
+            "ordinal": 1,
+            "note": ""
+        },
+        {
+            "command": "tar -xvf snappy-1.0.5.tar.gz",
+            "ordinal": 2,
+            "note": ""
+        },
+        {
+            "command": "cd snappy-1.0.5",
+            "ordinal": 3,
+            "note": ""
+        },
+	{
+            "command": "./configure --prefix=/opt/couchbase",
+            "ordinal": 4,
+            "note": ""
+        },
+	{
+            "command": "make install DESTDIR=/tmp/cbstaging/snappy",
+            "ordinal": 5,
+            "note": ""
+        }
+	]
+}

@@ -1,0 +1,56 @@
+{
+    "dirs":[],
+    "files":[],
+    "depends": [
+        {
+            "package": "curl",
+            "version": "7.21.4-DEV",
+            "platform": "linux-ubuntu-12.04",
+            "manifest": "curl-7.21.4-DEV-linux-ubuntu-12.04.json"
+        },
+        {
+            "package": "libevent",
+            "version": "2.0.11-stable",
+            "platform": "linux-ubuntu-12.04",
+            "manifest": "libevent-2.0.11-stable-linux-ubuntu-12.04.json"
+        },
+        {
+            "package": "icu4c",
+            "version": "4.4.2",
+            "platform": "linux-ubuntu-12.04",
+            "manifest": "icu4c-4.4.2-linux-ubuntu-12.04.json"
+        },
+        {
+            "package": "otp",
+            "version": "R15B02",
+            "platform": "linux-ubuntu-12.04",
+            "manifest": "otp-R15B02-linux-ubuntu-12.04.json"
+        },
+        {
+            "package": "snappy",
+            "version": "1.0.5",
+            "platform": "linux-ubuntu-12.04",
+            "manifest": "snappy-1.0.5-linux-ubuntu-12.04.json"
+        },
+        {
+            "package": "sqlite3",
+            "version": "autoconf-3071400",
+            "platform": "linux-ubuntu-12.04",
+            "manifest": "sqlite3-autoconf-3071400-linux-ubuntu-12.04.json"
+        },
+        {
+            "package": "gperftools",
+            "version": "2.0",
+            "platform": "linux-ubuntu-12.04",
+            "manifest": "gperftools-2.0-linux-ubuntu-12.04.json"
+        },
+        {
+            "package": "libtcmalloc_minimal",
+            "version": "2.0",
+            "platform": "linux-ubuntu-12.04",
+            "manifest": "libtcmalloc_minimal-2.0-linux-ubuntu-12.04.json"
+        }
+        
+    ],
+    "build": []
+}

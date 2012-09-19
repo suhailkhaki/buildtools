@@ -5,11 +5,11 @@ class CommonUtils:
 
     @staticmethod
     def generate_manifest_filename(package_name, version, platform, file_ext):
-        return package_name + "-" + version + "-" + platform + "." + file_ext
+        return CommonUtils.generate_package_name(package_name, version, platform) + "." + file_ext
 
     @staticmethod
-    def get_package_depo_name_from_manifest_file(manifest_file):
-        return os.path.splitext(os.path.basename(manifest_file))[0]
+    def generate_package_name(package_name, version , platform):
+        return package_name + "-" + version + "-" + platform
 
     # Based on # https://stomp.colorado.edu/blog/blog/2010/10/22/on-python-stat-octal-and-file-system-permissions/ (2012-06-25)
     @staticmethod
@@ -58,4 +58,7 @@ class PermissionError(Exception):
     pass
 
 class CyclicDependencyError(Exception):
+    pass
+
+class ResourceNotFoundError(Exception):
     pass

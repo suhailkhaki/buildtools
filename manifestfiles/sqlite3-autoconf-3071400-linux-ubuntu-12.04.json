@@ -1,0 +1,107 @@
+{
+    "dirs":[
+        {
+            "path":"lib"
+        },
+        {
+            "path":"lib/pkgconfig"
+        },
+        {
+            "path":"bin"
+        },
+        {
+            "path":"share"
+        },
+        {
+            "path":"share/man"
+        },
+        {
+            "path":"share/man/man1"
+        },
+        {
+            "path":"include"
+        }
+    ],
+    "files":[
+        {
+            "path":"lib/libsqlite3.so.0.8.6",
+            "sha1":"f0f560604ff172bee233d5c35bdb3fc9d7aa45c6",
+            "mode":"0755"
+        },
+        {
+            "path":"lib/libsqlite3.a",
+            "sha1":"331f74e4813e5e7e8eab1ed9eb15180e15322540",
+            "mode":"0644"
+        },
+        {
+            "path":"lib/libsqlite3.so.0",
+            "sha1":"f0f560604ff172bee233d5c35bdb3fc9d7aa45c6",
+            "mode":"0755"
+        },
+        {
+            "path":"lib/libsqlite3.so",
+            "sha1":"f0f560604ff172bee233d5c35bdb3fc9d7aa45c6",
+            "mode":"0755"
+        },
+        {
+            "path":"lib/libsqlite3.la",
+            "sha1":"79d2200888bb365995ab10cb320d64b39cbdc717",
+            "mode":"0755"
+        },
+        {
+            "path":"lib/pkgconfig/sqlite3.pc",
+            "sha1":"3ea0e6197ea30d2627bb5ae6ccf5756787fb0584",
+            "mode":"0644"
+        },
+        {
+            "path":"bin/sqlite3",
+            "sha1":"4eb7ac5656bcd6da0f4395727a69b94e5b4559d5",
+            "mode":"0755"
+        },
+        {
+            "path":"share/man/man1/sqlite3.1",
+            "sha1":"6be1ad09113570e1fc8dcaff84c9b0b337db5ffc",
+            "mode":"0644"
+        },
+        {
+            "path":"include/sqlite3.h",
+            "sha1":"f950c88e5f2b4930b34efb4c446daab238cb49c8",
+            "mode":"0644"
+        },
+        {
+            "path":"include/sqlite3ext.h",
+            "sha1":"6904f4aadf976f95241311fbffb00823075d9477",
+            "mode":"0644"
+        }
+    ],
+    "depends":[
+        
+    ],
+    "build": [
+		{
+            "command": "wget http://www.sqlite.org/sqlite-autoconf-3071400.tar.gz",
+            "ordinal": 1,
+            "note": ""
+        },
+        {
+            "command": "tar -xvf sqlite-autoconf-3071400.tar.gz",
+            "ordinal": 2,
+            "note": ""
+        },
+        {
+            "command": "cd sqlite-autoconf-3071400/",
+            "ordinal": 3,
+            "note": ""
+        },
+		{
+            "command": "./configure --prefix=/opt/couchbase",
+            "ordinal": 4,
+            "note": ""
+        },
+		{
+            "command": "make install DESTDIR=/tmp/cbstaging/sqlite3",
+            "ordinal": 5,
+            "note": ""
+        }
+	]
+}

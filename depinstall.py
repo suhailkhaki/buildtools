@@ -10,7 +10,7 @@ DEP_STATUS_KEY_INSTALLED = "installed"
 DEP_STATUS_KEY_INQUEUE = "in-queue"
 
 '''
-TODO:move manifestfile to ect/package
+TODO:move manifestfile to etc/package
 '''
 
 class PackageInstaller:
@@ -24,11 +24,6 @@ class PackageInstaller:
         self._dep_status = dep_status
         self._installation_success = False
         self._setup()
-
-    @classmethod
-    def get_instance_from_args(cls, args, dep_status={DEP_STATUS_KEY_INSTALLED: [],
-                                                      DEP_STATUS_KEY_INQUEUE:[]}):
-        return cls(args.package_name, args.version, args.platform, args.install_dir, args.depot_location, dep_status)
 
     @classmethod
     def get_instance_from_manifest_filename(cls, manifest_filename, install_dir, depot_location, dep_status={DEP_STATUS_KEY_INSTALLED: [],

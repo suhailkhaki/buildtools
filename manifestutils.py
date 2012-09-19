@@ -3,6 +3,8 @@ import os
 import hashlib
 import stat
 import json
+import logger
+
 from commons import CommonUtils, CommonConsts
 
 class ManifestGenerator:

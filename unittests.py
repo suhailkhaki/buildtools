@@ -6,7 +6,7 @@ import tarfile
 import subprocess
 import shutil
 import json
-import logger
+import logging
 
 from commons import CommonConsts, CommonUtils
 from manifestutils import ManifestGenerator
@@ -34,7 +34,7 @@ class BaseTestCase(unittest.TestCase):
 
     def setUp(self):
         try:
-            self.log = logger.Logger.get_logger()
+            self.log = logging.getLogger()
             self.log.info("setup started...")
             if not os.path.exists(DIR_UNITTEST_RT):
                 os.mkdir(DIR_UNITTEST_RT)
@@ -122,7 +122,8 @@ class BaseTestCase(unittest.TestCase):
 class ManifestTestCases(BaseTestCase):
     def test_genfile(self):
         '''
-        python voltron20.py manifest genfile --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" -stgdir="/tmp/snappy/opt/couchbase" tfp="/home/suhail/workspace/temp/manifest-files"
+        python voltron20.py manifest genfile --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" 
+        -sd="/tmp/snappy/opt/couchbase" -tfp="/home/suhail/workspace/temp/manifest-files"
         '''
         m = ManifestGenerator(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, os.path.join(DIR_SNAPPY_STAGING), DIR_DEPOT_TEMP)
         m.generate_manifest()
@@ -163,21 +164,22 @@ class SWDepoTestCases(BaseTestCase):
 
     def _add_snappy_to_depot(self):
         '''
-         python voltron20.py depot add -sd="/tmp/snappy/opt/couchbase" -mf="/home/suhail/workspace/temp/manifest-files/snappy-1.0.5-ubuntu-12.04.json"
+         python voltron20.py depot -l="/cbdepot" add --package_name="snappy" -ver="1.0.5" 
+        -p="ubuntu-12.04" -sd="/tmp/snappy/opt/couchbase" -md="/home/suhail/workspace/temp/manifest-files"
         '''
         sd = SoftwareDepot(DIR_DEPOT)
         sd.add(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, DIR_SNAPPY_STAGING, os.path.join(DIR_DEPOT_TEMP))
 
     def _update_snappy_in_depot(self):
         '''
-         python voltron20.py depot update -sd="/tmp/snappy/opt/couchbase" -mf="/home/suhail/workspace/temp/manifest-files/snappy-1.0.5-ubuntu-12.04.json"
-        '''
+        python voltron20.py depot -l="/cbdepot" update --package_name="snappy" -ver="1.0.5" 
+        -p="ubuntu-12.04" -sd="/tmp/snappy/opt/couchbase" -md="/home/suhail/workspace/temp/manifest-files"        '''
         sd = SoftwareDepot(DIR_DEPOT)
         sd.update(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM, DIR_SNAPPY_STAGING, os.path.join(DIR_DEPOT_TEMP))
 
     def _delete_snappy_from_depot(self):
         '''
-         python voltron20.py depot delete -sd="/tmp/snappy/opt/couchbase" -mf="/home/suhail/workspace/temp/manifest-files/snappy-1.0.5-ubuntu-12.04.json"
+         python voltron20.py depot -l="/cbdepot" delete --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04"
         '''
         sd = SoftwareDepot(DIR_DEPOT)
         sd.delete(SNAPPY_PKG_NAME, SNAPPY_VERSION, SNAPPY_PLATFORM)
@@ -185,3 +187,6 @@ class SWDepoTestCases(BaseTestCase):
     def _list_packages(self):
         sd = SoftwareDepot(DIR_DEPOT)
         sd.list()
+
+    if __name__ == "__main__":
+            unittest.main()

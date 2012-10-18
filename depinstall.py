@@ -88,9 +88,12 @@ class PackageInstaller:
         shutil.copy(mf_temp_file, self._etc_dir)
 
     def _get_manifest_object(self):
-        mf_path = self._get_local_manifest_file()
-        with open(mf_path, "rb") as f:
-            return json.load(f)
+        try:
+            mf_path = self._get_local_manifest_file()
+            with open(mf_path, "rb") as f:
+                return json.load(f)
+        except Exception as e:
+            raise ValueError("Error while retrieving manifest file: {0} from Software Depot: {1}.Error is {2}".format(self._manifest_filename, self._depot_location, e.strerror))
 
     #TODO: Security (Authenticaton, etc) 
     def _get_local_manifest_file(self):
@@ -98,6 +101,7 @@ class PackageInstaller:
         manifest_temp_path = self._get_local_temp_manifest_filepath()
         urllib.urlretrieve(manifest_depo_path, manifest_temp_path)
         return manifest_temp_path
+
 
     def _get_local_temp_manifest_filepath(self):
         return os.path.join(self._temp_dir, self._manifest_filename)

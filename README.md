@@ -66,7 +66,7 @@ This examples assumes following directory structure
 
 	Staging Directory : /tmp
 	Software Depot: /cbdepot
-	Install Directory: /cbinstall
+	Install Directory: /opt/couchbase
 
 In this example, 
 * Staging -> Step 1,2 and 3
@@ -82,7 +82,7 @@ In this example,
 2. Compile Snappy:
 		
 		./configure --prefix=/opt/couchbase
-		gmake install DESTDIR=/tmp/snappy
+		make install DESTDIR=/tmp/snappy
 
 3. Generate manifest file:
 	  
@@ -98,5 +98,5 @@ In this example,
 5. Install it to the directory named install:
 
 		install --package_name="snappy" -ver="1.0.5" -p="ubuntu-12.04" 
-		-d="/cbinstall" -depol="/cbdepot"
+		-d="/opt/couchbase" -depol="/cbdepot"
 

@@ -6,7 +6,7 @@ import tarfile
 import subprocess
 import shutil
 import json
-import logging
+import logger
 
 from commons import CommonConsts, CommonUtils, ResourceNotFoundError
 from manifestutils import ManifestGenerator
@@ -37,7 +37,7 @@ class BaseTestCase(unittest.TestCase):
 
     def setUp(self):
         try:
-            self.log = logging.getLogger()
+            self.log = logger.Logger.get_logger()
             self.log.info("setup started...")
             if not os.path.exists(DIR_UNITTEST_RT):
                 os.mkdir(DIR_UNITTEST_RT)

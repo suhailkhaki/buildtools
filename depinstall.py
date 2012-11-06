@@ -1,8 +1,10 @@
 import os.path
 import json
 import shutil
-import urllib
+import urllib2
+import urlparse
 import hashlib
+import logger
 
 from commons import CommonUtils, CommonConsts, ChecksumError, PermissionError, CyclicDependencyError
 
@@ -13,6 +15,7 @@ DEP_STATUS_KEY_INQUEUE = "in-queue"
 class PackageInstaller:
     def __init__(self, name, version, platform, install_dir, depot_location, dep_status={DEP_STATUS_KEY_INSTALLED: [],
                                                                                          DEP_STATUS_KEY_INQUEUE:[]}):
+        self._log = logger.Logger.get_logger()
         self._name = name
         self._version = version
         self._platform = platform
@@ -25,7 +28,7 @@ class PackageInstaller:
 
     def install(self):
         try:
-            print ("Started installing package : {0}-{1} for OS : {2} ...".format(self._name, self._version, self._platform))
+            self._log.info("Started installing package : {0}-{1} for OS : {2} ...".format(self._name, self._version, self._platform))
             self._update_dep_status()
             if self._is_already_installed:
                 self._install_update()
@@ -34,7 +37,7 @@ class PackageInstaller:
             self._store_manifestfile()
             self._installation_success = True
             self._update_dep_status()
-            print ("Completed installing package : {0}-{1} for OS : {2} .".format(self._name, self._version, self._platform))
+            self._log.info("Completed installing package : {0}-{1} for OS : {2} .".format(self._name, self._version, self._platform))
         finally:
             self._cleanup()
 
@@ -64,6 +67,7 @@ class PackageInstaller:
             self._manifest = self._get_manifest_object()
         except Exception as e:
             self._cleanup()
+            self._log.error(e)
             raise e
 
     def _cleanup(self):
@@ -93,13 +97,14 @@ class PackageInstaller:
             with open(mf_path, "rb") as f:
                 return json.load(f)
         except Exception as e:
-            raise ValueError("Error while retrieving manifest file: {0} from Software Depot: {1}.Error is {2}".format(self._manifest_filename, self._depot_location, e.strerror))
+            raise ValueError("Error while retrieving manifest file: {0} from Software Depot: {1}.Error is {2}".format(self._manifest_filename, self._depot_location, e))
 
     #TODO: Security (Authenticaton, etc) 
     def _get_local_manifest_file(self):
         manifest_depo_path = os.path.join(self._depot_manifestfile_location, self._manifest_filename)
         manifest_temp_path = self._get_local_temp_manifest_filepath()
-        urllib.urlretrieve(manifest_depo_path, manifest_temp_path)
+        #urllib.urlretrieve(manifest_depo_path, manifest_temp_path)
+        self._retrieve_file(manifest_depo_path, manifest_temp_path)
         return manifest_temp_path
 
 
@@ -165,10 +170,22 @@ class PackageInstaller:
     def _install_file(self, f):
         srcfile = self._get_source_file(f)
         destfile = self._get_destination_file(f)
-        urllib.urlretrieve(srcfile, destfile) # TODO: need to optimize here. Would depend on the storage type and location
+        self._log.debug("Installing file... \n src: {0} \n dest: {1} ".format(srcfile, destfile))
+        #urllib.urlretrieve(srcfile, destfile) 
+        self._retrieve_file(srcfile, destfile) # TODO: need to optimize here (use pycurl)
+        self._log.debug("File retrieved from depot: {0}".format(srcfile))
         os.chmod(destfile, int(f[CommonConsts.MF_KEY_FILES_ATTR_MODE], 8))
         if not self._verify_file(f):
             os._exit(os.EX_DATAERR)
+
+    def _retrieve_file(self, srcfile, destfile):
+        if not urlparse.urlparse(srcfile).scheme:
+            srcfile = "file:" + srcfile
+        response = urllib2.urlopen(srcfile)
+        content = response.read()
+        with open(destfile, "w") as f:
+            f.write(content)
+
 
     """Check the sha1 of and installed file and verifies its permission"""
     def _verify_file(self, f):
@@ -181,6 +198,7 @@ class PackageInstaller:
         if mode != f[CommonConsts.MF_KEY_FILES_ATTR_MODE]:
             raise PermissionError("FATAL: Permission mode doesn't match for installed file: {0}".format(fullpath))
         return True
+
 
     def _get_source_file(self, f):
         return os.path.join(self._depot_datafile_location, f[CommonConsts.MF_KEY_FILES_ATTR_SHA1])
